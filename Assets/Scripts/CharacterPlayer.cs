@@ -9,10 +9,12 @@ public class CharacterPlayer : Character
     [SerializeField] private float MoveGravity;
     [SerializeField] private float MoveBaseGravity;
     [SerializeField] private float JumpSpeed;
+    [SerializeField] private float CoyoteJumpTimer;
     [SerializeField] private GameObject Model;
+    private float CoyoteJumpTimerActual;
     private Vector3 MoveVector;
     private Vector2 MoveInputVector;
-    private float MoveVertical;
+    public float MoveVertical;
 
 
     //Camera
@@ -50,27 +52,30 @@ public class CharacterPlayer : Character
 
         //gravity
         RaycastHit hit;
-        if (Physics.Raycast(Model.transform.position, Vector3.down, 1.1f))
+        if (Physics.Raycast(Model.transform.position, Vector3.down, 1.2f))
         {
+            CoyoteJumpTimerActual = CoyoteJumpTimer;
             if (MoveVertical < 0)
             {
                 MoveVertical = 0;
             }
-            if (Input.GetButtonDown("Jump"))
-            {
-                MoveVertical += JumpSpeed;
-            }
         }
-        else
+        else if (Physics.SphereCast(Model.transform.position, 0.55f, Vector3.down, out hit, 0.6f))
         {
-            MoveVertical -= MoveGravity * Time.deltaTime;
-            if (Physics.SphereCast(Model.transform.position, 0.5f, Vector3.down, out hit, 0.6f))
+            if (MoveVertical < MoveBaseGravity)
             {
-                if (MoveVertical < MoveBaseGravity)
-                {
-                    MoveVertical = MoveBaseGravity;
-                }
+                MoveVertical = MoveBaseGravity;
             }
+        } else
+        {
+            CoyoteJumpTimerActual -= Time.deltaTime;
+        }
+
+        MoveVertical -= MoveGravity * Time.deltaTime;
+
+        if (Input.GetButtonDown("Jump") && CoyoteJumpTimerActual > 0)
+        {
+            MoveVertical += JumpSpeed;
         }
 
         MoveVector = new Vector3(MoveVector.x, MoveVertical, MoveVector.z);
