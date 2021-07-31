@@ -56,8 +56,9 @@
     <Analyzer Include="/Applications/Visual Studio.app/Contents/Resources/lib/monodevelop/AddIns/MonoDevelop.Unity/Analyzers/Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets/Scripts/CharacterMove.cs" />
     <Compile Include="Assets/Scripts/InventaryManager.cs" />
+    <Compile Include="Assets/Scripts/Character.cs" />
+    <Compile Include="Assets/Scripts/CharacterPlayer.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
