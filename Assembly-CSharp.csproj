@@ -56,13 +56,14 @@
     <Analyzer Include="/Applications/Visual Studio.app/Contents/Resources/lib/monodevelop/AddIns/MonoDevelop.Unity/Analyzers/Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets/Scripts/CharacterPlayer.cs" />
-    <Compile Include="Assets/Scripts/Character.cs" />
-    <Compile Include="Assets/Scripts/TECH/TECH_Grass.cs" />
     <Compile Include="Assets/Scripts/InventoryItem.cs" />
     <Compile Include="Assets/Scripts/InventoryManager.cs" />
+    <Compile Include="Assets/Scripts/CharacterPlayer.cs" />
     <Compile Include="Assets/Scripts/TECH/TECH_WaterLine.cs" />
+    <Compile Include="Assets/Scripts/Character.cs" />
+    <Compile Include="Assets/Scripts/TECH/TECH_Grass.cs" />
     <Compile Include="Assets/Scripts/Manager/GameManager.cs" />
+    <Compile Include="Assets/Scripts/Manager/LevelManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
