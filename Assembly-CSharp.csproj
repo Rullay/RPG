@@ -58,9 +58,11 @@
   <ItemGroup>
     <Compile Include="Assets/Scripts/CharacterPlayer.cs" />
     <Compile Include="Assets/Scripts/Character.cs" />
-    <Compile Include="Assets/Scripts/TECH_Grass.cs" />
+    <Compile Include="Assets/Scripts/TECH/TECH_Grass.cs" />
     <Compile Include="Assets/Scripts/InventoryItem.cs" />
     <Compile Include="Assets/Scripts/InventoryManager.cs" />
+    <Compile Include="Assets/Scripts/TECH/TECH_WaterLine.cs" />
+    <Compile Include="Assets/Scripts/Manager/GameManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
