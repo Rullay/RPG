@@ -295,7 +295,7 @@ MonoBehaviour:
   STATS_Speed: 4
   STATS_JumpSpeed: 20
   STATS_Gravity: 50
-  STATS_BaseDownMovement: 2
+  STATS_BaseDownMovement: 3
   STATS_JumpSurfaceAngle: 45
   Model: {fileID: 6479307609405797753}
   CameraX: {fileID: 7020724210508707702}
