@@ -3,3 +3,6 @@ Library/
 Temp/
 Logs/
 .vs/
+*.csproj
+*.csproj
+*.csproj
