@@ -3724,7 +3724,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5ad26a5744731845a124b25d3b051ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  panel_Inventory_Item: {fileID: 0}
+  panel_Inventory_Item: {fileID: 4359136542901351485}
 --- !u!1 &6361265288668949550
 GameObject:
   m_ObjectHideFlags: 0
@@ -4441,7 +4441,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 547f6db5f0b5c684c848057c49baa852, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  panel_Inventory_Manager: {fileID: 0}
+  panel_Inventory_Manager: {fileID: 6361265289592667223}
 --- !u!1 &6361265289326415627
 GameObject:
   m_ObjectHideFlags: 0
