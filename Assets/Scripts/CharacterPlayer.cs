@@ -5,36 +5,35 @@ using UnityEngine;
 public class CharacterPlayer : Character
 {
     //Move
-    [SerializeField] private float MoveSpeed;
-    [SerializeField] private float MoveGravity;
-    [SerializeField] private float MoveBaseGravity;
-    [SerializeField] private float JumpSpeed;
-    [SerializeField] private float CoyoteJumpTimer;
+    [SerializeField] private float STATS_Speed;
+    [SerializeField] private float STATS_JumpSpeed;
+    [SerializeField] private float STATS_Gravity;
+    [SerializeField] private float STATS_BaseDownMovement;
+    [SerializeField] private float STATS_JumpSurfaceAngle;
     [SerializeField] private GameObject Model;
-    private float CoyoteJumpTimerActual;
-    private Vector3 MoveVector;
-    private Vector2 MoveInputVector;
-    public float MoveVertical;
+    private Vector3 TECH_MoveVector;
+    private Vector2 TECH_MoveInputVector;
+    private float TECH_MoveVertical;
 
 
     //Camera
     [SerializeField] private GameObject CameraX;
     [SerializeField] private GameObject CameraY;
     [SerializeField] private Camera Camera;
-    [SerializeField] private float CameraMinAngle;
-    [SerializeField] private float CameraMaxAngle;
-    [SerializeField] private float CameraVerticalSens;
-    [SerializeField] private float CameraHorizontalSens;
-    private float CameraActualAngle;
+    [SerializeField] private float SET_CameraMinAngle;
+    [SerializeField] private float SET_CameraMaxAngle;
+    [SerializeField] private float SET_CameraVerticalSens;
+    [SerializeField] private float SET_CameraHorizontalSens;
+    private float TECH_CameraActualAngle;
 
 
     //phisics
-    private Rigidbody Rigidbody;
+    private CharacterController CharacterController;
 
 
     void Start()
     {
-        Rigidbody = GetComponent<Rigidbody>();
+        CharacterController = GetComponent<CharacterController>();
     }
 
     void Update()
@@ -45,53 +44,47 @@ public class CharacterPlayer : Character
 
     void Movement()
     {
-        MoveInputVector = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-        MoveInputVector = MoveInputVector.normalized * MoveInputVector.magnitude;
-        MoveVector = CameraY.transform.TransformVector(MoveInputVector.x, 0, MoveInputVector.y) * MoveSpeed;
-        Model.transform.LookAt(Model.transform.position + MoveVector);
+        TECH_MoveInputVector = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+        TECH_MoveInputVector = TECH_MoveInputVector.normalized * TECH_MoveInputVector.magnitude;
+        TECH_MoveVector = CameraY.transform.TransformVector(TECH_MoveInputVector.x, 0, TECH_MoveInputVector.y) * STATS_Speed;
+        Model.transform.LookAt(Model.transform.position + TECH_MoveVector);
 
         //gravity
+        if (Physics.Raycast(transform.position, Vector3.down, 1f + TECH_SurfaceAngleToRangeCast(STATS_JumpSurfaceAngle)))
+        {
+            if (Input.GetButtonDown("Jump") && TECH_MoveVertical <= 0)
+            {
+                TECH_MoveVertical += STATS_JumpSpeed;
+            }
+        }
         RaycastHit hit;
-        if (Physics.Raycast(Model.transform.position, Vector3.down, 1.2f))
+        if (Physics.SphereCast(transform.position, 0.5f, Vector3.down, out hit, 0.6f))
         {
-            CoyoteJumpTimerActual = CoyoteJumpTimer;
-            if (MoveVertical < 0)
+            if (TECH_MoveVertical < -STATS_BaseDownMovement)
             {
-                MoveVertical = 0;
+                TECH_MoveVertical = -STATS_BaseDownMovement;
             }
         }
-        else if (Physics.SphereCast(Model.transform.position, 0.55f, Vector3.down, out hit, 0.6f))
-        {
-            if (MoveVertical < MoveBaseGravity)
-            {
-                MoveVertical = MoveBaseGravity;
-            }
-        } else
-        {
-            CoyoteJumpTimerActual -= Time.deltaTime;
-        }
 
-        MoveVertical -= MoveGravity * Time.deltaTime;
-
-        if (Input.GetButtonDown("Jump") && CoyoteJumpTimerActual > 0)
-        {
-            MoveVertical += JumpSpeed;
-        }
-
-        MoveVector = new Vector3(MoveVector.x, MoveVertical, MoveVector.z);
+        TECH_MoveVertical -= STATS_Gravity * Time.deltaTime;
+        TECH_MoveVector = new Vector3(TECH_MoveVector.x, TECH_MoveVertical, TECH_MoveVector.z);
 
         //End
-        Rigidbody.velocity = MoveVector;
+        CharacterController.Move(TECH_MoveVector * Time.deltaTime);
     }
 
     void CameraMovement()
     {
         //Horizontal
-        CameraY.transform.Rotate(0,Input.GetAxis("Mouse X") * CameraHorizontalSens,0);
+        CameraY.transform.Rotate(0,Input.GetAxis("Mouse X") * SET_CameraHorizontalSens,0);
 
         //Vertical
-        CameraActualAngle = Mathf.Clamp(CameraActualAngle -= Input.GetAxis("Mouse Y") * CameraVerticalSens, CameraMinAngle, CameraMaxAngle);
-        CameraX.transform.localEulerAngles = new Vector3(CameraActualAngle,0,0);
+        TECH_CameraActualAngle = Mathf.Clamp(TECH_CameraActualAngle -= Input.GetAxis("Mouse Y") * SET_CameraVerticalSens, SET_CameraMinAngle, SET_CameraMaxAngle);
+        CameraX.transform.localEulerAngles = new Vector3(TECH_CameraActualAngle,0,0);
+    }
 
+    float TECH_SurfaceAngleToRangeCast(float Angle)
+    {
+        return 0.5f / Mathf.Cos(Angle * Mathf.PI / 180f) - 0.5f;
     }
 }
