@@ -4,15 +4,26 @@ using UnityEngine;
 
 public class InventaryManager : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField] private GameObject Panel_Inventory_Menu;
     void Start()
     {
         
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
         
+    }
+
+    void Opening_And_Closing()
+    {
+        if(Input.GetKeyDown("i"))
+        {
+            if()
+            {
+                
+            }
+        }
     }
 }

@@ -3,3 +3,8 @@ Library/
 Temp/
 Logs/
 .vs/
+Assembly-CSharp.csproj
+Assembly-CSharp.csproj
+Logs/AssetImportWorker0.log
+UnityEditor.TestRunner.csproj
+*.csproj
