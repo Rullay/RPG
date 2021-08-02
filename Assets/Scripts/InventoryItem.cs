@@ -33,6 +33,10 @@ public class InventoryItem : MonoBehaviour
         }
         else
         {
+            for(int i = 0; i < Items_slots.Count; i++)
+            {
+                Items_slots[i].GetComponent<InventoryItem>().panel_Inventory_Item.SetActive(false);
+            }
             panel_Inventory_Item.SetActive(true);
         }
     }
@@ -69,6 +73,7 @@ public class InventoryItem : MonoBehaviour
                         {
                             Items_slots[j].GetComponent<Image>().sprite = GetComponent<Image>().sprite;
                             GetComponent<Image>().sprite = items[i].GetComponent<Item>().item_Sprite;
+                            panel_Inventory_Item.SetActive(false);
                         }                   
                         equipped_item = true;
                     }
@@ -77,6 +82,7 @@ public class InventoryItem : MonoBehaviour
                 {
                     GetComponent<Image>().sprite = items[i].GetComponent<Item>().item_Sprite;
                     text_in_Button.text = "";
+                    panel_Inventory_Item.SetActive(false);
                 }
                 equipped_item = false;
             }
