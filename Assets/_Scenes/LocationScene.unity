@@ -14,7 +14,7 @@ OcclusionCullingSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
-  m_Fog: 1
+  m_Fog: 0
   m_FogColor: {r: 0.7688679, g: 0.9641002, b: 1, a: 1}
   m_FogMode: 1
   m_FogDensity: 0.001
@@ -97,8 +97,8 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
-  m_LightingSettings: {fileID: 4890085278179872738, guid: 4b9a0845738204c75869cf2c17358125, type: 2}
+  m_LightingDataAsset: {fileID: 112000000, guid: 56ed8f8fc085340fa88fb492a3569fd7, type: 2}
+  m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -355,6 +355,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1080530690126568993, guid: efad91ab67e0041eaa9ada667e273fc5, type: 3}
+      propertyPath: m_MaterialTemplate
+      value: 
+      objectReference: {fileID: 2100000, guid: 23201536c576f4aa08d614d4107331fa, type: 2}
     - target: {fileID: 1080530690407780418, guid: efad91ab67e0041eaa9ada667e273fc5, type: 3}
       propertyPath: m_Name
       value: Location

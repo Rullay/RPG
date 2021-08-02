@@ -383,6 +383,10 @@ PrefabInstance:
       value: Fire
       objectReference: {fileID: 0}
     - target: {fileID: 764077858525234241, guid: 305ce2e25e2744b669a60ec8bd18c5a5, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 764077858525234241, guid: 305ce2e25e2744b669a60ec8bd18c5a5, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
