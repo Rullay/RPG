@@ -8,13 +8,10 @@ public class InventoryItem : MonoBehaviour
     [SerializeField] private GameObject panel_Inventory_Item;
     [SerializeField] private List<GameObject> items;
     [SerializeField] private List<GameObject> slots;
+    [SerializeField] private Text text_in_Button;
+    [SerializeField] private List<GameObject> Items_slots;
+    private bool equipped_item;
 
-    //slot
-    /*[SerializeField] private GameObject slot_0;
-    [SerializeField] private GameObject slot_1;
-    [SerializeField] private GameObject slot_2;
-    [SerializeField] private GameObject slot_3;
-    */
 
     void Start()
     {
@@ -29,7 +26,7 @@ public class InventoryItem : MonoBehaviour
 
     public void Panel_Inventory_Item()
     {
-        Debug.Log(1);
+       
         if (panel_Inventory_Item.activeSelf == true)
         {
             panel_Inventory_Item.SetActive(false);
@@ -52,7 +49,7 @@ public class InventoryItem : MonoBehaviour
                     slots[i].GetComponent<Image>().sprite = items[i].GetComponent<Item>().item_Sprite;
                 }
             }
-           // items[i].
+           
         }
     }
 
@@ -61,9 +58,27 @@ public class InventoryItem : MonoBehaviour
         
         for (int i = 0; i < slots.Count; i++)
         {
-            if(slots[i].GetComponent<Slot>().clik == true)
+            if(slots[i].GetComponent<Slot>().clik == true && i < items.Count)
             {
-                GetComponent<Image>().sprite = items[i].GetComponent<Item>().item_Sprite;
+              
+                for (int j = 0; j < Items_slots.Count; j++)
+                {              
+                    if (Items_slots[j].GetComponent<Image>().sprite == items[i].GetComponent<Item>().item_Sprite)
+                    {
+                        if(GetComponent<Image>().sprite != null )
+                        {
+                            Items_slots[j].GetComponent<Image>().sprite = GetComponent<Image>().sprite;
+                            GetComponent<Image>().sprite = items[i].GetComponent<Item>().item_Sprite;
+                        }                   
+                        equipped_item = true;
+                    }
+                }
+                if(equipped_item == false)
+                {
+                    GetComponent<Image>().sprite = items[i].GetComponent<Item>().item_Sprite;
+                    text_in_Button.text = "";
+                }
+                equipped_item = false;
             }
         }
     }

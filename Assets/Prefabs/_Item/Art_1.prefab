@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2662818860751495160}
   - component: {fileID: 567835947739635691}
   m_Layer: 0
-  m_Name: Sword
+  m_Name: Art_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -43,4 +43,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6f93c23438098648a37fd344ca893b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item_Sprite: {fileID: 21300000, guid: fb929ca1d0dfed34982b9350b3b76b78, type: 3}
+  item_Sprite: {fileID: 21300000, guid: ea5ef5ad9ee4e794cbd64c8f291ef1f4, type: 3}
