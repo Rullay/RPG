@@ -60,11 +60,13 @@
     <Compile Include="Assets/_Scripts/_TECH/TECH_GetTriangle.cs" />
     <Compile Include="Assets/_Scripts/InventoryManager.cs" />
     <Compile Include="Assets/_Scripts/CharacterPlayer.cs" />
+    <Compile Include="Assets/_Scripts/Slot.cs" />
     <Compile Include="Assets/_Scripts/_Manager/LevelManager.cs" />
-    <Compile Include="Assets/_Scripts/_TECH/TECH_WaterLine.cs" />
+    <Compile Include="Assets/_Scripts/Item.cs" />
     <Compile Include="Assets/_Scripts/Character.cs" />
     <Compile Include="Assets/_Scripts/_TECH/TECH_Grass.cs" />
     <Compile Include="Assets/_Scripts/_Manager/GameManager.cs" />
+    <Compile Include="Assets/_Scripts/CharacterEnemy.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
