@@ -15,12 +15,17 @@ public class LevelManager : MonoBehaviour
     {
         DontDestroyOnLoad(gameObject);
         TECH_ActualTime = SET_DayTimeStart;
+        DirectionLight.transform.localEulerAngles = new Vector3(TECH_ActualTime * 360 - 90, SET_LightAngle, 0);
     }
 
     void Update()
     {
-        TECH_ActualTime += Time.deltaTime * SET_DayTimeScale * 0.0000116f;
-        if (TECH_ActualTime > 1) { TECH_ActualTime -= 1;}
-        DirectionLight.transform.localEulerAngles = new Vector3(TECH_ActualTime * 360 - 90, SET_LightAngle, 0);
+        if (SET_DayTimeScale != 0)
+        {
+
+            TECH_ActualTime += Time.deltaTime * SET_DayTimeScale * 0.0000116f;
+            if (TECH_ActualTime > 1) { TECH_ActualTime -= 1; }
+            DirectionLight.transform.localEulerAngles = new Vector3(TECH_ActualTime * 360 - 90, SET_LightAngle, 0);
+        }
     }
 }
