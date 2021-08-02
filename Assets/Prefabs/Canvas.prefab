@@ -170,6 +170,7 @@ GameObject:
   - component: {fileID: 4780147196638307673}
   - component: {fileID: 1492516711978842666}
   - component: {fileID: 5153965576018750374}
+  - component: {fileID: 6331805336436459417}
   m_Layer: 5
   m_Name: ItemSlot (1)
   m_TagString: Untagged
@@ -278,7 +279,33 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1492516711978842666}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6331805336436459417}
+        m_TargetAssemblyTypeName: Slot, Assembly-CSharp
+        m_MethodName: Clik
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &6331805336436459417
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 221935714346923617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb862c37561fff6499eecc548a3e9be8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemSlot: {fileID: 6361265289073584735}
+  clik: 0
 --- !u!1 &295019695072447718
 GameObject:
   m_ObjectHideFlags: 0
@@ -1357,6 +1384,7 @@ GameObject:
   - component: {fileID: 5792306468512115750}
   - component: {fileID: 6255371143231605809}
   - component: {fileID: 5903529011068843996}
+  - component: {fileID: 8899010954373671816}
   m_Layer: 5
   m_Name: ItemSlot (2)
   m_TagString: Untagged
@@ -1465,7 +1493,33 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6255371143231605809}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8899010954373671816}
+        m_TargetAssemblyTypeName: Slot, Assembly-CSharp
+        m_MethodName: Clik
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &8899010954373671816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2273943124609404236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb862c37561fff6499eecc548a3e9be8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemSlot: {fileID: 6361265289073584735}
+  clik: 0
 --- !u!1 &2526569816662019154
 GameObject:
   m_ObjectHideFlags: 0
@@ -2594,6 +2648,7 @@ GameObject:
   - component: {fileID: 6698749126479864299}
   - component: {fileID: 5379505091165976739}
   - component: {fileID: 226157662423618948}
+  - component: {fileID: 4730209948137209431}
   m_Layer: 5
   m_Name: ItemSlot
   m_TagString: Untagged
@@ -2702,7 +2757,33 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5379505091165976739}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4730209948137209431}
+        m_TargetAssemblyTypeName: Slot, Assembly-CSharp
+        m_MethodName: Clik
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &4730209948137209431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4724615926769851854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb862c37561fff6499eecc548a3e9be8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemSlot: {fileID: 6361265289073584735}
+  clik: 0
 --- !u!1 &4916452981361838958
 GameObject:
   m_ObjectHideFlags: 0
@@ -3073,6 +3154,7 @@ GameObject:
   - component: {fileID: 3492552316065284517}
   - component: {fileID: 7802832729371731464}
   - component: {fileID: 4879886819657867726}
+  - component: {fileID: 5479733648981225903}
   m_Layer: 5
   m_Name: ItemSlot (3)
   m_TagString: Untagged
@@ -3181,7 +3263,33 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7802832729371731464}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5479733648981225903}
+        m_TargetAssemblyTypeName: Slot, Assembly-CSharp
+        m_MethodName: Clik
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &5479733648981225903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5507264328210332315}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb862c37561fff6499eecc548a3e9be8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemSlot: {fileID: 6361265289073584735}
+  clik: 0
 --- !u!1 &5618138758327822400
 GameObject:
   m_ObjectHideFlags: 0
@@ -3725,6 +3833,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panel_Inventory_Item: {fileID: 4359136542901351485}
+  items: []
+  slots: []
 --- !u!1 &6361265288668949550
 GameObject:
   m_ObjectHideFlags: 0
@@ -3952,6 +4062,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panel_Inventory_Item: {fileID: 2526569816662019154}
+  items: []
+  slots: []
 --- !u!1 &6361265288994407553
 GameObject:
   m_ObjectHideFlags: 0
@@ -4100,6 +4212,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panel_Inventory_Item: {fileID: 8671163148483990703}
+  items: []
+  slots: []
 --- !u!1 &6361265289070546158
 GameObject:
   m_ObjectHideFlags: 0
@@ -4327,6 +4441,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panel_Inventory_Item: {fileID: 5785927139245159454}
+  items:
+  - {fileID: 5986302149939897912, guid: fc9ddc7dd79153549bfa676466051d4c, type: 3}
+  - {fileID: 5986302149939897912, guid: e38162b739acbba4c8bf53427f1ab9bf, type: 3}
+  slots:
+  - {fileID: 4724615926769851854}
+  - {fileID: 221935714346923617}
+  - {fileID: 2273943124609404236}
+  - {fileID: 5507264328210332315}
 --- !u!1 &6361265289271919981
 GameObject:
   m_ObjectHideFlags: 0
@@ -4591,6 +4713,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panel_Inventory_Item: {fileID: 7139767426207954216}
+  items: []
+  slots: []
 --- !u!1 &6361265289469387635
 GameObject:
   m_ObjectHideFlags: 0
@@ -4978,6 +5102,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panel_Inventory_Item: {fileID: 2854080887794373267}
+  items: []
+  slots: []
 --- !u!1 &6361265289768349256
 GameObject:
   m_ObjectHideFlags: 0
