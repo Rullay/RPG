@@ -293,7 +293,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   STATS_Speed: 6
-  STATS_JumpSpeed: 20
+  STATS_JumpSpeed: 17
   STATS_Gravity: 50
   STATS_BaseDownMovement: 3
   STATS_JumpSurfaceAngle: 45
