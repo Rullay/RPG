@@ -1,23 +1,32 @@
 ﻿<Properties StartupConfiguration="{0BE8E511-D506-A1D0-E67D-923A5ED26D39}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/TECH/TECH_GetTriangle.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/CharacterPlayer.cs">
     <Files>
       <File FileName="Assets/Scripts/Manager/LevelManager.cs" Line="23" Column="34" />
-      <File FileName="Assets/Scripts/CharacterPlayer.cs" />
-      <File FileName="Assets/Scripts/TECH/TECH_WaterLine.cs" />
+      <File FileName="Assets/Scripts/CharacterPlayer.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/TECH/TECH_WaterLine.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Manager/GameManager.cs" Line="19" Column="10" />
       <File FileName="Assets/Scripts/TECH/TECH_GetTriangle.cs" Line="19" Column="1" />
+      <File FileName="Assets/Scripts/InventoryManager.cs" Line="19" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="RPG" expanded="True" selected="True" />
+          <Node name="RPG" expanded="True">
+            <Node name="Assets" expanded="True">
+              <Node name="Scripts" expanded="True">
+                <Node name="Manager" expanded="True" />
+                <Node name="TECH" expanded="True" />
+                <Node name="CharacterPlayer.cs" selected="True" />
+              </Node>
+            </Node>
+          </Node>
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="5fa0edc2-fcc8-4b3b-850a-0d19b8dfa41b" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="3ebb0108-10e3-4cb8-99c5-aa9edb8a8275" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
