@@ -6,22 +6,59 @@ using UnityEngine.UI;
 public class InventoryItem : MonoBehaviour
 {
     [SerializeField] private GameObject panel_Inventory_Item;
-    [SerializeField] private List<GameObject> items;
+    [SerializeField] public List<GameObject> items;
     [SerializeField] private List<GameObject> slots;
     [SerializeField] private Text text_in_Button;
     [SerializeField] private List<GameObject> Items_slots;
     private bool equipped_item;
+    public string slot_Type;
+    public enum SlotTypeEnum
+    {
+        MainHand,
+        OfHand,
+        Head,
+        Chest,
+        Artifact
+    }
+    public SlotTypeEnum slotType;
+
 
 
     void Start()
     {
-        
+        Slot_Type();
     }
 
     
     void Update()
     {
         Item_in_slot();
+    }
+
+    void Slot_Type()
+    {
+        switch (slotType)
+        {
+            case SlotTypeEnum.MainHand:
+                slot_Type = "MainHand";
+                break;
+
+            case SlotTypeEnum.OfHand:
+                slot_Type = "OfHand";
+                break;
+
+            case SlotTypeEnum.Head:
+                slot_Type = "Head";
+                break;
+
+            case SlotTypeEnum.Chest:
+                slot_Type = "Chest";
+                break;
+
+            case SlotTypeEnum.Artifact:
+                slot_Type = "Artifact";
+                break;
+        }
     }
 
     public void Panel_Inventory_Item()

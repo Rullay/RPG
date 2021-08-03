@@ -6,13 +6,12 @@ public class InventoryManager : MonoBehaviour
 {
     //Panel
     [SerializeField] private GameObject panel_Inventory_Manager;
-    /*[SerializeField] private GameObject panel_Inventory_Item;
-    [SerializeField] private GameObject panel_Head_Item;
-    [SerializeField] private GameObject panel_Chest_Item;
-    [SerializeField] private GameObject panel_RightHand_Item;
-    [SerializeField] private GameObject panel_LeftHand_Item;
-    [SerializeField] private GameObject panel_Artifact_1_Item;
-    [SerializeField] private GameObject panel_Artifact_2_Item;*/
+    [SerializeField] private GameObject Player;
+    [SerializeField] private List<GameObject> inventory_Types;
+
+
+
+
 
 
 
@@ -44,7 +43,20 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
-    
+    public void ItemDispenser()
+    {
+        for (int i = 0; i < inventory_Types.Count; i++)
+        {
+           if (Player.GetComponent<Take>().current_Subject.GetComponent<Item>().item_Type == inventory_Types[i].GetComponent<InventoryItem>().slot_Type)
+           {
+                Debug.Log(i);
+                inventory_Types[i].GetComponent<InventoryItem>().items.Add(Player.GetComponent<Take>().current_Subject);
+           }
+        }
+        
+    }
+
+
 
 
 }
