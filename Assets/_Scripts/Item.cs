@@ -59,8 +59,7 @@ public class Item : MonoBehaviour
                 break;
         }
     }
-
-    public void Ñollected()
+    public void Collected()
     {
         gameObject.SetActive(false);
     }

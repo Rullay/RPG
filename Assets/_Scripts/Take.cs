@@ -25,7 +25,7 @@ public class Take : MonoBehaviour
         {
             current_Subject = other.gameObject;
             inventory_Manager.GetComponent<InventoryManager>().ItemDispenser();
-            other.GetComponent<Item>().Ñollected();
+            other.GetComponent<Item>().Collected();
         }
     }
 }
