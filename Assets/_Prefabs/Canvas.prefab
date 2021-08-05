@@ -4018,6 +4018,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panel_Inventory_Item: {fileID: 2719441833355572965}
+  inventoryManager: {fileID: 6361265289271919981}
   items: []
   slots:
   - {fileID: 1651514762998955136}
@@ -7507,6 +7508,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panel_Inventory_Item: {fileID: 4359136542901351485}
+  inventoryManager: {fileID: 6361265289271919981}
   items: []
   slots: []
   text_in_Button: {fileID: 6361265289593339582}
@@ -7747,6 +7749,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panel_Inventory_Item: {fileID: 2526569816662019154}
+  inventoryManager: {fileID: 6361265289271919981}
   items: []
   slots: []
   text_in_Button: {fileID: 6361265289768349258}
@@ -7908,6 +7911,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panel_Inventory_Item: {fileID: 8671163148483990703}
+  inventoryManager: {fileID: 6361265289271919981}
   items:
   - {fileID: 5986302149939897912, guid: 66ab7e3c2099af3409d47ddae04c05b0, type: 3}
   - {fileID: 5986302149939897912, guid: b4bde79bf02bb9b4994e46081486537d, type: 3}
@@ -8158,6 +8162,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panel_Inventory_Item: {fileID: 5785927139245159454}
+  inventoryManager: {fileID: 6361265289271919981}
   items: []
   slots:
   - {fileID: 4724615926769851854}
@@ -8298,6 +8303,7 @@ MonoBehaviour:
   - {fileID: 6361265289073584735}
   - {fileID: 7681538700988297522}
   - {fileID: 3361164551996827936}
+  player: {fileID: 445157295995454253, guid: d200b70d392dd428b90f2541e8511f17, type: 3}
 --- !u!1 &6361265289326415627
 GameObject:
   m_ObjectHideFlags: 0
@@ -8446,6 +8452,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panel_Inventory_Item: {fileID: 7139767426207954216}
+  inventoryManager: {fileID: 6361265289271919981}
   items: []
   slots:
   - {fileID: 7161028471989274285}
@@ -8847,6 +8854,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panel_Inventory_Item: {fileID: 2854080887794373267}
+  inventoryManager: {fileID: 6361265289271919981}
   items:
   - {fileID: 5986302149939897912, guid: 66ab7e3c2099af3409d47ddae04c05b0, type: 3}
   - {fileID: 5986302149939897912, guid: b4bde79bf02bb9b4994e46081486537d, type: 3}
@@ -10538,6 +10546,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panel_Inventory_Item: {fileID: 5634395306219867080}
+  inventoryManager: {fileID: 6361265289271919981}
   items: []
   slots:
   - {fileID: 6055356800284341833}

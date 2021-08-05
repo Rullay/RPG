@@ -6,10 +6,12 @@ using UnityEngine.UI;
 public class InventoryItem : MonoBehaviour
 {
     [SerializeField] private GameObject panel_Inventory_Item;
-    [SerializeField] public List<GameObject> items;
+    [SerializeField] private GameObject inventoryManager;
+    public List<GameObject> items;
     [SerializeField] private List<GameObject> slots;
     [SerializeField] private Text text_in_Button;
     [SerializeField] private List<GameObject> Items_slots;
+
     private bool equipped_item;
     public string slot_Type;
   
@@ -89,6 +91,8 @@ public class InventoryItem : MonoBehaviour
                     GetComponent<Image>().sprite = items[i].GetComponent<Item>().item_Sprite;
                     text_in_Button.text = "";
                     panel_Inventory_Item.SetActive(false);
+                    Debug.Log(0);
+                    inventoryManager.GetComponent<InventoryManager>().EquipedItem(items[i]);
                 }
                 equipped_item = false;
             }

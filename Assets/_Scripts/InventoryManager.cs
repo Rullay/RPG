@@ -7,6 +7,7 @@ public class InventoryManager : MonoBehaviour
     //Panel
     [SerializeField] private GameObject panel_Inventory_Manager;
     [SerializeField] private List<GameObject> inventory_Types;
+    [SerializeField] private GameObject player;
     
 
 
@@ -45,17 +46,21 @@ public class InventoryManager : MonoBehaviour
     {
         for (int i = 0; i < inventory_Types.Count; i++)
         {
-           /* Debug.Log(ItemObject.GetComponent<Item>().item_Type);
-            Debug.Log(inventory_Types[i].GetComponent<InventoryItem>().slot_Type);*/
+            Debug.Log(inventory_Types[i].GetComponent<InventoryItem>().slot_Type);
             if (ItemObject.GetComponent<Item>().item_Type == inventory_Types[i].GetComponent<InventoryItem>().slot_Type)
-           {
-                //Debug.Log(i);
-                inventory_Types[i].GetComponent<InventoryItem>().items.Add(ItemObject);
-           }
+            {
+               Debug.Log(ItemObject);
+               inventory_Types[i].GetComponent<InventoryItem>().items.Add(ItemObject);
+            }
         }
         
     }
 
+    public void EquipedItem(GameObject TECHE_Actual_Item)
+    {
+        Debug.Log(1);
+        player.GetComponent<CharacterWeapone>().AddStats(TECHE_Actual_Item);
+    }
 
 
 
