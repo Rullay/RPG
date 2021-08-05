@@ -33,7 +33,7 @@ public class CharacterPlayer : Character
 
     void Start()
     {
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);
         CharacterController = GetComponent<CharacterController>();
     }
 

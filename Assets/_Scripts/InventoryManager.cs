@@ -6,9 +6,8 @@ public class InventoryManager : MonoBehaviour
 {
     //Panel
     [SerializeField] private GameObject panel_Inventory_Manager;
-    [SerializeField] private GameObject Player;
     [SerializeField] private List<GameObject> inventory_Types;
-
+    
 
 
 
@@ -18,7 +17,6 @@ public class InventoryManager : MonoBehaviour
 
     void Start()
     {
-        
     }
 
    
@@ -43,14 +41,16 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
-    public void ItemDispenser()
+    public void ItemDispenser(GameObject ItemObject)
     {
         for (int i = 0; i < inventory_Types.Count; i++)
         {
-           if (Player.GetComponent<Take>().current_Subject.GetComponent<Item>().item_Type == inventory_Types[i].GetComponent<InventoryItem>().slot_Type)
+           /* Debug.Log(ItemObject.GetComponent<Item>().item_Type);
+            Debug.Log(inventory_Types[i].GetComponent<InventoryItem>().slot_Type);*/
+            if (ItemObject.GetComponent<Item>().item_Type == inventory_Types[i].GetComponent<InventoryItem>().slot_Type)
            {
-                Debug.Log(i);
-                inventory_Types[i].GetComponent<InventoryItem>().items.Add(Player.GetComponent<Take>().current_Subject);
+                //Debug.Log(i);
+                inventory_Types[i].GetComponent<InventoryItem>().items.Add(ItemObject);
            }
         }
         

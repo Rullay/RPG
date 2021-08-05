@@ -21,10 +21,11 @@ public class Take : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
+      
         if(other.tag == "Item")
         {
             current_Subject = other.gameObject;
-            inventory_Manager.GetComponent<InventoryManager>().ItemDispenser();
+            inventory_Manager.GetComponent<InventoryManager>().ItemDispenser(other.gameObject);
             other.GetComponent<Item>().Collected();
         }
     }

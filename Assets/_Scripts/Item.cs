@@ -36,7 +36,8 @@ public class Item : MonoBehaviour
 
     void Item_Type()
     {
-        switch (itemType)
+        item_Type = "MainHand";
+        /*switch (itemType)
         {
             case ItemTypeEnum.MainHand:
                 item_Type = "MainHand";
@@ -57,7 +58,7 @@ public class Item : MonoBehaviour
             case ItemTypeEnum.Artifact:
                 item_Type = "Artifact";
                 break;
-        }
+        }*/
     }
     public void Collected()
     {
