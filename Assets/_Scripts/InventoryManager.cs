@@ -50,7 +50,7 @@ public class InventoryManager : MonoBehaviour
             if (ItemObject.GetComponent<Item>().item_Type == inventory_Types[i].GetComponent<InventoryItem>().slot_Type)
             {
                Debug.Log(ItemObject);
-               inventory_Types[i].GetComponent<InventoryItem>().items.Add(ItemObject);
+               inventory_Types[i].GetComponent<InventoryItem>().items.Add(ItemObject);  
             }
         }
         
@@ -58,10 +58,16 @@ public class InventoryManager : MonoBehaviour
 
     public void EquipedItem(GameObject TECHE_Actual_Item)
     {
-        Debug.Log(1);
+        
         player.GetComponent<CharacterWeapone>().AddStats(TECHE_Actual_Item);
     }
 
+    public void ReEquipedItem()
+    {
+        player.GetComponent<CharacterWeapone>().LoadStats();
+
+
+    }
 
 
 }

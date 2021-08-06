@@ -93,6 +93,8 @@ GameObject:
   m_Component:
   - component: {fileID: 670159794421576130}
   - component: {fileID: 2888373068331300348}
+  - component: {fileID: 2900700522025772309}
+  - component: {fileID: 7423482153473213873}
   - component: {fileID: 1966769685921187644}
   m_Layer: 0
   m_Name: Player
@@ -142,6 +144,36 @@ MonoBehaviour:
   SET_CameraMaxAngle: 60
   SET_CameraVerticalSens: 10
   SET_CameraHorizontalSens: 10
+--- !u!114 &2900700522025772309
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 445157295995454253}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45a679642066cb6448e11d1e0278dd06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  current_Subject: {fileID: 0}
+  inventory_Manager: {fileID: 0}
+--- !u!114 &7423482153473213873
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 445157295995454253}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fab3bf63c2773743b31b0489b6268a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventoryManager: {fileID: 0}
+  STATS_weapone_Damage: 0
+  STATS_ranage_Attack: 0
+  STATS_engle_of_Deafet: 0
 --- !u!143 &1966769685921187644
 CharacterController:
   m_ObjectHideFlags: 0

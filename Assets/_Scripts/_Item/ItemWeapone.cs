@@ -7,11 +7,11 @@ public class ItemWeapone : Item
     public int  STATS_weapone_Damage;
     public float STATS_ranage_Attack;
     public float STATS_engle_of_Deafet;
+   
 
-
-    void Start()
+    new void Start()
     {
-        
+        base.Start();
     }
 
    
