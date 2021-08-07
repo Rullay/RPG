@@ -14,8 +14,8 @@ public class CharacterEnemyAI : Character
     private Vector3 TECH_StartPosition;
     private RaycastHit TECH_TargetHit;
 
+    [Header("AI")]
     [SerializeField] private float STATS_DetectionRange;
-    [SerializeField] private float STATS_AttackRange;
     [SerializeField] private float STATS_VisionRange;
 
     void Start()
