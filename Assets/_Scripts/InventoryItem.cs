@@ -115,7 +115,6 @@ public class InventoryItem : MonoBehaviour
     }
     void ReEquipedItem()
     {
-
         inventoryManager.GetComponent<InventoryManager>().ReEquipedItem();
         for (int i = 0; i < Items_slots.Count; i++ )
         {
