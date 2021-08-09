@@ -833,6 +833,7 @@ MonoBehaviour:
   Hands_2:
   - {fileID: 7681538700988297522}
   - {fileID: 3361164551996827936}
+  inventoryManager: {fileID: 6361265289271919981}
 --- !u!1 &520081846714758998
 GameObject:
   m_ObjectHideFlags: 0
@@ -4035,6 +4036,7 @@ MonoBehaviour:
   - {fileID: 6361265288994407553}
   - {fileID: 7681538700988297522}
   - {fileID: 3361164551996827936}
+  equipped_Item: {fileID: 0}
   slot_Type: MainHand
 --- !u!1 &3559649223078348682
 GameObject:
@@ -7521,6 +7523,7 @@ MonoBehaviour:
   - {fileID: 6361265288994407553}
   - {fileID: 7681538700988297522}
   - {fileID: 3361164551996827936}
+  equipped_Item: {fileID: 0}
   slot_Type: Head
 --- !u!1 &6361265288668949550
 GameObject:
@@ -7762,6 +7765,7 @@ MonoBehaviour:
   - {fileID: 6361265288994407553}
   - {fileID: 7681538700988297522}
   - {fileID: 3361164551996827936}
+  equipped_Item: {fileID: 0}
   slot_Type: Chest
 --- !u!1 &6361265288994407553
 GameObject:
@@ -7934,6 +7938,7 @@ MonoBehaviour:
   - {fileID: 6361265288994407553}
   - {fileID: 7681538700988297522}
   - {fileID: 3361164551996827936}
+  equipped_Item: {fileID: 0}
   slot_Type: Artifact
 --- !u!1 &6361265289070546158
 GameObject:
@@ -8179,6 +8184,7 @@ MonoBehaviour:
   - {fileID: 6361265288994407553}
   - {fileID: 7681538700988297522}
   - {fileID: 3361164551996827936}
+  equipped_Item: {fileID: 0}
   slot_Type: MainHand
 --- !u!1 &6361265289271919981
 GameObject:
@@ -8469,6 +8475,7 @@ MonoBehaviour:
   - {fileID: 6361265288994407553}
   - {fileID: 7681538700988297522}
   - {fileID: 3361164551996827936}
+  equipped_Item: {fileID: 0}
   slot_Type: OfHand
 --- !u!1 &6361265289469387635
 GameObject:
@@ -8877,6 +8884,7 @@ MonoBehaviour:
   - {fileID: 6361265288994407553}
   - {fileID: 7681538700988297522}
   - {fileID: 3361164551996827936}
+  equipped_Item: {fileID: 0}
   slot_Type: Artifact
 --- !u!1 &6361265289768349256
 GameObject:
@@ -10563,6 +10571,7 @@ MonoBehaviour:
   - {fileID: 6361265288994407553}
   - {fileID: 7681538700988297522}
   - {fileID: 3361164551996827936}
+  equipped_Item: {fileID: 0}
   slot_Type: OfHand
 --- !u!1 &7694534997430996256
 GameObject:

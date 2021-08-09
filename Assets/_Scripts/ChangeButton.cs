@@ -6,9 +6,10 @@ public class ChangeButton : MonoBehaviour
 {
     [SerializeField] private List<GameObject> Hands_1;
     [SerializeField] private List<GameObject> Hands_2;
+    [SerializeField] private GameObject inventoryManager;
 
 
-    void Start()
+   void Start()
     {
         
     }
@@ -37,5 +38,6 @@ public class ChangeButton : MonoBehaviour
                 Hands_2[i].SetActive(false);
             }
         }
+        inventoryManager.GetComponent<InventoryManager>().ReEquipedItem();
     }
 }

@@ -108,16 +108,17 @@ public class InventoryItem : MonoBehaviour
                 equipped_item = false;
             }
         }
-        ReEquipedSprite();
-        ReEquipedItem();
+        inventoryManager.GetComponent<InventoryManager>().ReEquipedSprite();
+        inventoryManager.GetComponent<InventoryManager>().ReEquipedItem();
     }
-    void ReEquipedItem()
+    /*public void ReEquipedItem()
     {
         inventoryManager.GetComponent<InventoryManager>().ReEquipedItem();
         for (int i = 0; i < Items_slots.Count; i++)
         {
-            if (Items_slots[i].GetComponent<InventoryItem>().equipped_Item != null)
+            if (Items_slots[i].GetComponent<InventoryItem>().equipped_Item != null && Items_slots[i].activeSelf == true)
             {
+                Debug.Log(i);
                 Items_slots[i].GetComponent<InventoryItem>().inventoryManager.GetComponent<InventoryManager>().EquipedItem(Items_slots[i].GetComponent<InventoryItem>().equipped_Item);
             }
         }
@@ -129,14 +130,13 @@ public class InventoryItem : MonoBehaviour
 
         for(int j = 0; j < Items_slots.Count; j++)
         {
-            Debug.Log(Items_slots[j].GetComponent<InventoryItem>().equipped_Item);
             if(Items_slots[j].GetComponent<InventoryItem>().equipped_Item != null)
-            {
+            {               
                 Items_slots[j].GetComponent<Image>().sprite = Items_slots[j].GetComponent<InventoryItem>().equipped_Item.GetComponent<Item>().item_Sprite;
             }
            
         }
         
-    }
+    }*/
 }
 
