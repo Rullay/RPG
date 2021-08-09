@@ -82,8 +82,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4b5c49521c164659a539c1382362fc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  STATS_DetectionRange: 15
+  STATS_MoveSpeed: 6
+  STATS_MoveRunMultiplier: 2
+  STATS_JupmSpeed: 17
+  STATS_Gravity: 50
+  STATS_HealthMax: 1
+  STATS_StaminaMax: 1
+  STATS_StaminaActual: 1
+  STATS_AttackDamage: 1
   STATS_AttackRange: 1
+  STATS_AttackSpeed: 1
+  STATS_DetectionRange: 15
   STATS_VisionRange: 30
 --- !u!1001 &1890886119692683000
 PrefabInstance:

@@ -7,6 +7,8 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance = null;
     public Transform PlayerTransform;
     public GameObject Player;
+    public Transform CameraBaseTransform;
+    public GameObject Camera;
 
     void Awake()
     {
@@ -19,10 +21,5 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
         DontDestroyOnLoad(gameObject);
-    }
-
-    void Update()
-    {
-
     }
 }
