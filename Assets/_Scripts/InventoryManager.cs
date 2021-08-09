@@ -46,10 +46,8 @@ public class InventoryManager : MonoBehaviour
     {
         for (int i = 0; i < inventory_Types.Count; i++)
         {
-            Debug.Log(inventory_Types[i].GetComponent<InventoryItem>().slot_Type);
             if (ItemObject.GetComponent<Item>().item_Type == inventory_Types[i].GetComponent<InventoryItem>().slot_Type)
             {
-               Debug.Log(ItemObject);
                inventory_Types[i].GetComponent<InventoryItem>().items.Add(ItemObject);  
             }
         }

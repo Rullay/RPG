@@ -28,7 +28,7 @@ public class InventoryItem : MonoBehaviour
     void Update()
     {
         Item_in_slot();
-        
+
     }
 
 
@@ -69,7 +69,6 @@ public class InventoryItem : MonoBehaviour
 
     public void Equiped()
     {
-
         for (int i = 0; i < slots.Count; i++)
         {
             if (slots[i].GetComponent<Slot>().clik == true && i < items.Count)
@@ -81,10 +80,8 @@ public class InventoryItem : MonoBehaviour
                     {
                         if (GetComponent<InventoryItem>().equipped_Item != null)
                         {
-                            equipped_Item = items[i];
-                            Items_slots[j].GetComponent<Image>().sprite = GetComponent<Image>().sprite;
-                            GetComponent<Image>().sprite = equipped_Item.GetComponent<Item>().item_Sprite;
-                            ReEquipedItem();
+                            Items_slots[j].GetComponent<InventoryItem>().equipped_Item = equipped_Item;
+                            equipped_Item = items[i];                         
                             text_in_Button.text = "";
                             panel_Inventory_Item.SetActive(false);
                         }
@@ -97,14 +94,13 @@ public class InventoryItem : MonoBehaviour
                     {
                         equipped_Item = items[i];
                         GetComponent<Image>().sprite = equipped_Item.GetComponent<Item>().item_Sprite;
-                        text_in_Button.text = "";                   
+                        text_in_Button.text = "";
                         inventoryManager.GetComponent<InventoryManager>().EquipedItem(equipped_Item);
                     }
                     else
                     {
                         equipped_Item = items[i];
-                        GetComponent<Image>().sprite = equipped_Item.GetComponent<Item>().item_Sprite;
-                        ReEquipedItem();
+                        GetComponent<Image>().sprite = equipped_Item.GetComponent<Item>().item_Sprite;                       
                     }
                     panel_Inventory_Item.SetActive(false);
 
@@ -112,17 +108,35 @@ public class InventoryItem : MonoBehaviour
                 equipped_item = false;
             }
         }
+        ReEquipedSprite();
+        ReEquipedItem();
     }
     void ReEquipedItem()
     {
         inventoryManager.GetComponent<InventoryManager>().ReEquipedItem();
-        for (int i = 0; i < Items_slots.Count; i++ )
+        for (int i = 0; i < Items_slots.Count; i++)
         {
             if (Items_slots[i].GetComponent<InventoryItem>().equipped_Item != null)
             {
                 Items_slots[i].GetComponent<InventoryItem>().inventoryManager.GetComponent<InventoryManager>().EquipedItem(Items_slots[i].GetComponent<InventoryItem>().equipped_Item);
-            }           
+            }
         }
     }
 
+
+    void ReEquipedSprite()
+    {
+
+        for(int j = 0; j < Items_slots.Count; j++)
+        {
+            Debug.Log(Items_slots[j].GetComponent<InventoryItem>().equipped_Item);
+            if(Items_slots[j].GetComponent<InventoryItem>().equipped_Item != null)
+            {
+                Items_slots[j].GetComponent<Image>().sprite = Items_slots[j].GetComponent<InventoryItem>().equipped_Item.GetComponent<Item>().item_Sprite;
+            }
+           
+        }
+        
+    }
 }
+

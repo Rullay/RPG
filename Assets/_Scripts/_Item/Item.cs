@@ -34,7 +34,6 @@ public class Item : MonoBehaviour
 
     public void WriteType()
     {
-        Debug.Log(item_Type);
         switch(itemType)
         {
             case ItemType.MainHand:
@@ -54,7 +53,6 @@ public class Item : MonoBehaviour
             break;
                 
         }
-        Debug.Log(item_Type);
     }
 
 
