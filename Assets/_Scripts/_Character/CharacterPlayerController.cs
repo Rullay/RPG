@@ -2,9 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CharacterPlayer : Character
+public class CharacterPlayerController : Character
 {
-    [SerializeField] private GameObject Model;
     private float TECH_BaseDownMovement = 2;
     private float TECH_JumpSurfaceAngle = 45;
     private Vector3 TECH_MoveVector;
@@ -13,12 +12,13 @@ public class CharacterPlayer : Character
 
     private Transform CameraTransform;
 
-    //phisics
     private CharacterController CharacterController;
+    private RaycastHit TECH_Hit;
 
 
-    void Start()
+    protected override void Start()
     {
+        base.Start();
         //DontDestroyOnLoad(gameObject);
         CharacterController = GetComponent<CharacterController>();
         CameraTransform = GameManager.Instance.CameraBaseTransform;
@@ -26,6 +26,10 @@ public class CharacterPlayer : Character
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            Attack();
+        }
         Movement();
     }
 
@@ -34,7 +38,7 @@ public class CharacterPlayer : Character
         TECH_MoveInputVector = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
         TECH_MoveInputVector = TECH_MoveInputVector.normalized * TECH_MoveInputVector.magnitude;
         TECH_MoveVector = CameraTransform.TransformVector(TECH_MoveInputVector.x, 0, TECH_MoveInputVector.y) * STATS_MoveSpeed;
-        Model.transform.LookAt(Model.transform.position + TECH_MoveVector);
+        TECH_Model.transform.LookAt(TECH_Model.transform.position + TECH_MoveVector);
 
         //gravity
         if (Physics.Raycast(transform.position, Vector3.down, 1f + TECH_SurfaceAngleToRangeCast(TECH_JumpSurfaceAngle)))
@@ -44,8 +48,7 @@ public class CharacterPlayer : Character
                 TECH_MoveVertical += STATS_JupmSpeed;
             }
         }
-        RaycastHit hit;
-        if (Physics.SphereCast(transform.position, 0.5f, Vector3.down, out hit, 0.6f))
+        if (Physics.SphereCast(transform.position, 0.5f, Vector3.down, out TECH_Hit, 0.6f))
         {
             if (TECH_MoveVertical < -TECH_BaseDownMovement)
             {

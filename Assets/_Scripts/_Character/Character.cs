@@ -4,5 +4,10 @@ using UnityEngine;
 
 public partial class Character : MonoBehaviour
 {
-
+    protected virtual void Start()
+    {
+        InitializedAttack();
+        InitializedStats();
+        InitializedModel();
+    }
 }
