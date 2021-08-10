@@ -9,7 +9,8 @@ public class InventoryManager : MonoBehaviour
     [SerializeField] private GameObject panel_Inventory_Manager;
     [SerializeField] private List<GameObject> inventory_Types;
     [SerializeField] private GameObject player;
-    
+    [SerializeField] private GameObject LavelUPMenu;
+
 
 
 
@@ -35,10 +36,12 @@ public class InventoryManager : MonoBehaviour
             if (panel_Inventory_Manager.activeSelf == true)
             {
                 panel_Inventory_Manager.SetActive(false);
+                LavelUPMenu.SetActive(false);
             }
             else
             {
                 panel_Inventory_Manager.SetActive(true);
+                LavelUPMenu.SetActive(true);
             }
         }
     }
