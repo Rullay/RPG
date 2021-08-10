@@ -18,6 +18,10 @@ public partial class Character
                 ColliderObject = TECH_Child.gameObject;
             }
         }
+        if (!ColliderObject)
+        {
+            Debug.LogWarning("!!! Не найден объект с триггером попадания !!!");
+        }
 
         TECH_RecalculateCollider();
     }

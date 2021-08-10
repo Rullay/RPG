@@ -17,6 +17,7 @@ public partial class Character
         }
         if (!TECH_Model)
         {
+            Debug.LogWarning("!!! Не найдена модель объекта !!!");
             TECH_Model = gameObject;
         }
     }
