@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class CharacterEnemyAI : Character
+public class CharacterEnemyController : Character
 {
     private enum STATE_AI { Patrol, GoToPatrol, Find, GoToAttack, Attack }
-    private STATE_AI TECH_State;
+    private STATE_AI TECH_StateAI;
 
     private NavMeshAgent NMA;
     private GameObject Target;
@@ -18,34 +18,43 @@ public class CharacterEnemyAI : Character
     [SerializeField] private float STATS_DetectionRange;
     [SerializeField] private float STATS_VisionRange;
 
-    void Start()
+    protected override void Start()
     {
+        base.Start();
         Target = GameManager.Instance.Player;
 
         TargetTransform = Target.transform;
         TECH_StartPosition = transform.position;
         NMA = GetComponent<NavMeshAgent>();
+
+        NMA.speed = STATS_MoveSpeed;
     }
 
     void Update()
     {
-        switch(TECH_State)
+        if (TECH_State == STATE.Alive)
         {
-            case STATE_AI.Patrol:
-                AI_Patrol();
-                break;
-            case STATE_AI.GoToPatrol:
-                AI_GoToPatrol();
-                break;
-            case STATE_AI.Find:
-                AI_Find();
-                break;
-            case STATE_AI.Attack:
-                AI_Attack();
-                break;
-            case STATE_AI.GoToAttack:
-                AI_GoToAttack();
-                break;
+            switch (TECH_StateAI)
+            {
+                case STATE_AI.Patrol:
+                    AI_Patrol();
+                    break;
+                case STATE_AI.GoToPatrol:
+                    AI_GoToPatrol();
+                    break;
+                case STATE_AI.Find:
+                    AI_Find();
+                    break;
+                case STATE_AI.Attack:
+                    AI_Attack();
+                    break;
+                case STATE_AI.GoToAttack:
+                    AI_GoToAttack();
+                    break;
+            }
+        } else
+        {
+            NMA.isStopped = true;
         }
     }
 
@@ -53,39 +62,39 @@ public class CharacterEnemyAI : Character
     {
         if ((TECH_GetDistanceTo(TargetTransform.position) < STATS_DetectionRange) && TECH_IsSeePlayer())
         {
-            TECH_State = STATE_AI.GoToAttack;
+            TECH_StateAI = STATE_AI.GoToAttack;
         }
     }
 
     void AI_GoToPatrol()
     {
         NMA.SetDestination(TECH_StartPosition);
-        TECH_State = STATE_AI.Patrol;
+        TECH_StateAI = STATE_AI.Patrol;
     }
 
     void AI_Find()
     {
         if (TECH_IsSeePlayer())
         {
-            TECH_State = STATE_AI.GoToAttack;
+            TECH_StateAI = STATE_AI.GoToAttack;
         }
         else if (NMA.remainingDistance < 0.1f)
         {
-            TECH_State = STATE_AI.GoToPatrol;
+            TECH_StateAI = STATE_AI.GoToPatrol;
         }
     }
 
     void AI_Attack()
     {
-        Debug.Log("Attack");
-        TECH_State = STATE_AI.GoToAttack;
+        Attack();
+        TECH_StateAI = STATE_AI.GoToAttack;
     }
 
     void AI_GoToAttack()
     {
-        if (TECH_GetDistanceTo(TargetTransform.position) < STATS_AttackRange)
+        if (TECH_GetDistanceTo(TargetTransform.position) < STATS_AttackRange * 0.8f)
         {
-            TECH_State = STATE_AI.Attack;
+            TECH_StateAI = STATE_AI.Attack;
         }
         else if (TECH_IsSeePlayer())
         {
@@ -93,7 +102,7 @@ public class CharacterEnemyAI : Character
         }
         else
         {
-            TECH_State = STATE_AI.Find;
+            TECH_StateAI = STATE_AI.Find;
         }
     }
 

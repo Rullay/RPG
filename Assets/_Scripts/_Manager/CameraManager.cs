@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraManader : MonoBehaviour
+public class CameraManager : MonoBehaviour
 {
 
     [SerializeField] private GameObject CameraX;
@@ -20,7 +20,7 @@ public class CameraManader : MonoBehaviour
         PlayerTransform = GameManager.Instance.PlayerTransform;
     }
 
-    void Update()
+    void LateUpdate()
     {
         transform.position = PlayerTransform.position;
 
