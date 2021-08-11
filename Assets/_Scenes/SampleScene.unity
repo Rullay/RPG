@@ -683,11 +683,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6361265289271919981, guid: c115599436f2dae49965f24cd7a3c9eb, type: 3}
   m_PrefabInstance: {fileID: 1820846930}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1224987249 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4780697277668721520, guid: c115599436f2dae49965f24cd7a3c9eb, type: 3}
-  m_PrefabInstance: {fileID: 1820846930}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1293632957
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -831,10 +826,6 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 810346285}
-    - target: {fileID: 2937181606429115949, guid: c115599436f2dae49965f24cd7a3c9eb, type: 3}
-      propertyPath: LavelUPMenu
-      value: 
-      objectReference: {fileID: 1224987249}
     - target: {fileID: 4780697277668721520, guid: c115599436f2dae49965f24cd7a3c9eb, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -926,14 +917,6 @@ PrefabInstance:
     - target: {fileID: 6361265289271919981, guid: c115599436f2dae49965f24cd7a3c9eb, type: 3}
       propertyPath: m_Name
       value: Canvas
-      objectReference: {fileID: 0}
-    - target: {fileID: 6613396098394366105, guid: c115599436f2dae49965f24cd7a3c9eb, type: 3}
-      propertyPath: items.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7398827993958402349, guid: c115599436f2dae49965f24cd7a3c9eb, type: 3}
-      propertyPath: items.Array.size
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c115599436f2dae49965f24cd7a3c9eb, type: 3}

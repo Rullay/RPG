@@ -7,6 +7,7 @@ public class StatsUPButton : MonoBehaviour
 {
     public bool clik;
     [SerializeField] private GameObject LavelUP_Menu;
+    public string NameParameter;
 
     void Start()
     {

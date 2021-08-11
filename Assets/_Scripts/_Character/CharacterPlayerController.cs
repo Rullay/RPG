@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CharacterPlayerController : Character
+public partial class CharacterPlayerController : Character
 {
     private float TECH_BaseDownMovement = 2;
     private float TECH_JumpSurfaceAngle = 45;
@@ -22,6 +22,7 @@ public class CharacterPlayerController : Character
         //DontDestroyOnLoad(gameObject);
         CharacterController = GetComponent<CharacterController>();
         CameraTransform = GameManager.Instance.CameraBaseTransform;
+        SaveStats();
     }
 
     void Update()

@@ -9,7 +9,6 @@ public partial class Character : MonoBehaviour
         InitializedAttack();
         InitializedStats();
         InitializedModel();
-
-        SaveStats();
+        
     }
 }

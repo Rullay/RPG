@@ -3070,6 +3070,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clik: 0
   LavelUP_Menu: {fileID: 4780697277668721520}
+  NameParameter: Health
 --- !u!1 &2526569816662019154
 GameObject:
   m_ObjectHideFlags: 0
@@ -4650,6 +4651,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clik: 0
   LavelUP_Menu: {fileID: 4780697277668721520}
+  NameParameter: Stamina
 --- !u!1 &3598482708143270488
 GameObject:
   m_ObjectHideFlags: 0
@@ -6209,6 +6211,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clik: 0
   LavelUP_Menu: {fileID: 4780697277668721520}
+  NameParameter: 
 --- !u!1 &4780697277668721520
 GameObject:
   m_ObjectHideFlags: 0
@@ -6234,7 +6237,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4780697277668721520}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 395, y: 165, z: 0}
+  m_LocalPosition: {x: 376, y: 180, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3939417534945250438}
@@ -8013,6 +8016,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clik: 0
   LavelUP_Menu: {fileID: 4780697277668721520}
+  NameParameter: Speed
 --- !u!1 &6073108420410000931
 GameObject:
   m_ObjectHideFlags: 0
@@ -8873,9 +8877,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   panel_Inventory_Item: {fileID: 8671163148483990703}
   inventoryManager: {fileID: 6361265289271919981}
-  items:
-  - {fileID: 5986302149939897912, guid: 66ab7e3c2099af3409d47ddae04c05b0, type: 3}
-  - {fileID: 5986302149939897912, guid: b4bde79bf02bb9b4994e46081486537d, type: 3}
+  items: []
   slots:
   - {fileID: 8363736853538110636}
   - {fileID: 317241430517494721}
@@ -9267,7 +9269,8 @@ MonoBehaviour:
   - {fileID: 6361265289073584735}
   - {fileID: 7681538700988297522}
   - {fileID: 3361164551996827936}
-  player: {fileID: 445157295995454253, guid: d200b70d392dd428b90f2541e8511f17, type: 3}
+  player: {fileID: 0}
+  LavelUPMenu: {fileID: 4780697277668721520}
 --- !u!1 &6361265289326415627
 GameObject:
   m_ObjectHideFlags: 0
@@ -9820,9 +9823,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   panel_Inventory_Item: {fileID: 2854080887794373267}
   inventoryManager: {fileID: 6361265289271919981}
-  items:
-  - {fileID: 5986302149939897912, guid: 66ab7e3c2099af3409d47ddae04c05b0, type: 3}
-  - {fileID: 5986302149939897912, guid: b4bde79bf02bb9b4994e46081486537d, type: 3}
+  items: []
   slots:
   - {fileID: 3125203463925992204}
   - {fileID: 295019695072447718}

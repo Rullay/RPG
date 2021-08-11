@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class CharacterEnemyController : Character
+public partial class CharacterEnemyController : Character
 {
     private enum STATE_AI { Patrol, GoToPatrol, Find, GoToAttack, Attack }
     private STATE_AI TECH_StateAI;

@@ -15,30 +15,30 @@ public partial class Character
     public float STATS_Gravity;
 
     [Header("Health")]
-    public float STATS_HealthMax;
-    public float STATS_HealthActual;
+    public int STATS_HealthMax;
+    public int STATS_HealthActual;
 
     [Header("Stamina")]
     public float STATS_StaminaMax;
     public float STATS_StaminaActual;
 
     [Header("Attack")]
-    public float STATS_AttackDamage;
+    public int STATS_AttackDamage;
     public float STATS_AttackRange;
     public float STATS_AttackAngle;
     public float STATS_AttackSpeed;
     public bool STATS_isAttackCleaving;
 
-    public void GetDamage(float TECH_DamageValue)
+    public void GetDamage(int TECH_DamageValue)
     {
-        STATS_HealthActual = Mathf.Clamp(STATS_HealthActual - TECH_DamageValue, 0f, STATS_HealthMax);
+        STATS_HealthActual = Mathf.Clamp(STATS_HealthActual - TECH_DamageValue, 0, STATS_HealthMax);
         if (STATS_HealthActual <= 0)
         {
             TECH_State = STATE.Dead;
         }
     }
 
-    void TECH_ReCalculateStats()
+    public void TECH_ReCalculateStats()
     {
 
     }
@@ -49,4 +49,6 @@ public partial class Character
         STATS_HealthActual = STATS_HealthMax;
         STATS_StaminaActual = STATS_StaminaMax;
     }
+
+ 
 }

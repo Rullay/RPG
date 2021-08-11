@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class _LavelUP_Menu : MonoBehaviour
+public class LevelUP_Menu : MonoBehaviour
 {
     [SerializeField] private List<GameObject> StatsButton;
 
@@ -12,10 +12,9 @@ public class _LavelUP_Menu : MonoBehaviour
         for (int i = 0; i < StatsButton.Count; i++)
         {
             if (StatsButton[i].GetComponent<StatsUPButton>().clik == true)
-            {
-                GameManager.Instance.Player.GetComponent<CharacterPlayerController>().GetStatPoint(StatsButton[i].GetComponent<StatsUPButton>().NameParameter);
+            {               
+                 GameManager.Instance.Player.GetComponent<CharacterPlayerController>().GetStatPoint(StatsButton[i].GetComponent<StatsUPButton>().NameParameter);               
             }
-
         }
     }
 }
