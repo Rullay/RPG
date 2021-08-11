@@ -2,32 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CharacterWeapone : MonoBehaviour
+public partial class Character
 {
     [SerializeField] private GameObject inventoryManager;
 
-    //WeaponeStats
-     public int STATS_weapone_Damage;
-     public float STATS_ranage_Attack;
-     public float STATS_engle_of_Deafet;
-     public int STATS_armor_Armor;
-     public int STATS_armor_Health;
-     public int STATS_armor_Mana;
-
-    void Start()
-    {
-        SaveStats();
-    }
-
-
-    void Update()
-    {
-        
-    }
+    public int STATS_weapone_Damage;
+    public float STATS_ranage_Attack;
+    public float STATS_engle_of_Deafet;
+    public int STATS_armor_Armor;
+    public int STATS_armor_Health;
+    public int STATS_armor_Mana;
 
     public void AddStats(GameObject TECHE_Actual_Item)
     {
-        if(TECHE_Actual_Item.GetComponent<ItemWeapone>() != null)
+        if (TECHE_Actual_Item.GetComponent<ItemWeapone>() != null)
         {
             STATS_weapone_Damage += TECHE_Actual_Item.GetComponent<ItemWeapone>().STATS_weapone_Damage;
             STATS_ranage_Attack += TECHE_Actual_Item.GetComponent<ItemWeapone>().STATS_ranage_Attack;
@@ -41,7 +29,7 @@ public class CharacterWeapone : MonoBehaviour
             STATS_armor_Mana += TECHE_Actual_Item.GetComponent<ItemArmor>().STATS_armor_Mana;
         }
 
-       
+
 
     }
 
