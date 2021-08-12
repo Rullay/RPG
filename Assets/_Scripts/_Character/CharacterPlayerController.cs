@@ -31,6 +31,20 @@ public partial class CharacterPlayerController : Character
         {
             Attack();
         }
+
+        if (Input.GetKey(KeyCode.O))
+        {
+            CameraTransform.GetComponent<CameraManager>().SetCameraAim(true);
+        }
+        else if (Input.GetKeyUp(KeyCode.O))
+        {
+            CameraTransform.GetComponent<CameraManager>().SetCameraAim(false);
+            RangeAttack(Arrow);
+        }
+        else
+        {
+            CameraTransform.GetComponent<CameraManager>().SetCameraAim(false);
+        }
         Movement();
     }
 
@@ -40,6 +54,11 @@ public partial class CharacterPlayerController : Character
         TECH_MoveInputVector = TECH_MoveInputVector.normalized * TECH_MoveInputVector.magnitude;
         TECH_MoveVector = CameraTransform.TransformVector(TECH_MoveInputVector.x, 0, TECH_MoveInputVector.y) * STATS_MoveSpeed;
         TECH_Model.transform.LookAt(TECH_Model.transform.position + TECH_MoveVector);
+
+        if (CameraTransform.GetComponent<CameraManager>().GetCameraAim())
+        {
+            TECH_Model.transform.rotation = CameraTransform.rotation;
+        }
 
         //gravity
         if (Physics.Raycast(transform.position, Vector3.down, 1f + TECH_SurfaceAngleToRangeCast(TECH_JumpSurfaceAngle)))

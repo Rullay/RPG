@@ -11,7 +11,7 @@ public class Item : MonoBehaviour
     [SerializeField] public Sprite item_Sprite;
     public string item_Type;
 
-    public enum ItemType
+    private enum ItemType
     {
         MainHand,
         OfHand,
@@ -19,7 +19,7 @@ public class Item : MonoBehaviour
         Chest,
         Artifact
     }
-    public ItemType itemType;
+    [SerializeField] private ItemType itemType;
 
 
     public void Start()
@@ -27,42 +27,34 @@ public class Item : MonoBehaviour
         WriteType();
     }
 
-    void Update()
-    {
-        
-    }
-
     public void WriteType()
     {
-        switch(itemType)
+        switch (itemType)
         {
             case ItemType.MainHand:
                 item_Type = "MainHand";
-            break;
+                break;
             case ItemType.OfHand:
                 item_Type = "OfHand";
-            break;
+                break;
             case ItemType.Head:
                 item_Type = "Head";
-            break;
+                break;
             case ItemType.Chest:
                 item_Type = "Chest";
-            break;
+                break;
             case ItemType.Artifact:
                 item_Type = "Artifact";
-            break;
-                
+                break;
+
         }
     }
-
 
     public void Collected()
     {
         gameObject.SetActive(false);
     }
+}
 
 
- }   
-
-    
 

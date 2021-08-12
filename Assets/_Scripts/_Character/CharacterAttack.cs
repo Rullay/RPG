@@ -8,7 +8,9 @@ public partial class Character
     private List<GameObject> TECH_TriggerEnemyList;
     private GameObject TECH_ClosestEnemy;
     private float TECH_ClosestEnemyRange;
-    
+
+    private RaycastHit TECH_CameraHit;
+
     void InitializedAttack()
     {
         foreach (Transform TECH_Child in transform)
@@ -63,6 +65,12 @@ public partial class Character
         }
     }
 
+    protected void RangeAttack(GameObject Arrow)
+    {
+        GameObject ArrowObject = Instantiate<GameObject>(Arrow, transform.position, Quaternion.Euler(Vector3.zero));
+        ArrowObject.GetComponent<TECH_Arrow>().Initialized(gameObject, TECH_CalculateDirectionVector(), STATS_AttackDamage);
+    }
+
     void TECH_RecalculateCollider()
     {
         ColliderObject.transform.localScale = new Vector3(STATS_AttackRange + 0.5f, 1, 1);
@@ -72,5 +80,17 @@ public partial class Character
     {
         TECH_ClosestEnemy = Object;
         TECH_ClosestEnemyRange = (Object.transform.position - transform.position).magnitude;
+    }
+
+    Vector3 TECH_CalculateDirectionVector()
+    {
+        if(Physics.Raycast(transform.position, GameManager.Instance.Camera.transform.forward, out TECH_CameraHit, Mathf.Infinity))
+        {
+            return (TECH_CameraHit.point - transform.position);
+        }
+        else
+        {
+            return GameManager.Instance.Camera.transform.forward;
+        }
     }
 }

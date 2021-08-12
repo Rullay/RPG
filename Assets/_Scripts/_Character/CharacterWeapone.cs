@@ -4,8 +4,6 @@ using UnityEngine;
 
 public partial class Character
 {
-    
+    [SerializeField] protected GameObject Arrow;
 
-   
-   
 }

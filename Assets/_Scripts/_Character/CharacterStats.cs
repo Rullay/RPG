@@ -49,6 +49,4 @@ public partial class Character
         STATS_HealthActual = STATS_HealthMax;
         STATS_StaminaActual = STATS_StaminaMax;
     }
-
- 
 }
