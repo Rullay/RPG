@@ -4,25 +4,21 @@ using UnityEngine;
 
 public class Slot : MonoBehaviour
 {
-    [SerializeField] private GameObject itemSlot;
-    public bool clik;
+    public GameObject itemSlot;
+    private GameObject inventoryItem;
 
-    
-    void Start()
+    private void Start()
     {
+        inventoryItem = transform.parent.parent.gameObject;
+
         
     }
-
-    
-    void Update()
-    {
-        
-    }
-
     public void Clik()
     {
-        clik = true;
-        itemSlot.GetComponent<InventoryItem>().Equiped();
-        clik = false;
+        if(itemSlot)
+        {
+            Debug.Log(itemSlot);
+            inventoryItem.GetComponent<InventoryItem>().Equiped(itemSlot);
+        }  
     }
 }

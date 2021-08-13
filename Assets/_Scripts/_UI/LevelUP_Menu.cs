@@ -7,14 +7,9 @@ public class LevelUP_Menu : MonoBehaviour
 {
     [SerializeField] private List<GameObject> StatsButton;
 
-    public void ClickButton()
+
+    public void ClickButton(string NameParameter)
     {
-        for (int i = 0; i < StatsButton.Count; i++)
-        {
-            if (StatsButton[i].GetComponent<StatsUPButton>().TECH_Click == true)
-            {               
-                 GameManager.Instance.Player.GetComponent<CharacterPlayer>().UpStats(StatsButton[i].GetComponent<StatsUPButton>().NameParameter);               
-            }
-        }
+        GameManager.Instance.Player.GetComponent<CharacterPlayer>().UpStats(NameParameter);
     }
 }
