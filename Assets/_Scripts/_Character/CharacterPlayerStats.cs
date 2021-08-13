@@ -2,14 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public partial class CharacterPlayerController
+public partial class CharacterPlayer
 {
-    [SerializeField] private GameObject inventoryManager;
-
     public int STATS_ExpPointHealth;
     public int STATS_ExpPointStamina;
     public int STATS_ExpPointSpeed;
-    public void AddStats(GameObject TECHE_Actual_Item)
+
+    public void AddItemStats(GameObject TECHE_Actual_Item)
     {
         if (TECHE_Actual_Item.GetComponent<ItemWeapone>() != null)
         {
@@ -24,12 +23,9 @@ public partial class CharacterPlayerController
             STATS_HealthMax += TECHE_Actual_Item.GetComponent<ItemArmor>().STATS_armor_Health;
             STATS_StaminaMax += TECHE_Actual_Item.GetComponent<ItemArmor>().STATS_armor_Mana;
         }
-
-
-
     }   
     
-    public void GetStatPoint(string NameState)
+    public void UpStats(string NameState)
     {
         switch(NameState)
         {
@@ -47,7 +43,6 @@ public partial class CharacterPlayerController
 
     }
 
-
     void SaveStats()
 
     {
@@ -58,6 +53,7 @@ public partial class CharacterPlayerController
         PlayerPrefs.SetInt("STATS_armor_Health", STATS_HealthMax);
         PlayerPrefs.SetFloat("STATS_armor_Mana", STATS_StaminaMax);
     }
+
     public void LoadStats()
     {
         if (PlayerPrefs.HasKey("STATS_weapone_Damage"))

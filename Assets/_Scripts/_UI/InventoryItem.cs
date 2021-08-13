@@ -11,27 +11,15 @@ public class InventoryItem : MonoBehaviour
     [SerializeField] private List<GameObject> slots;
     [SerializeField] private Text text_in_Button;
     [SerializeField] private List<GameObject> Items_slots;
-    public GameObject equipped_Item;
+    public GameObject equipedItemObject;
 
-    private bool equipped_item;
+    private bool isItemEquiped;
     public string slot_Type;
-
-
-
-
-    void Start()
-    {
-
-    }
-
 
     void Update()
     {
-        Item_in_slot();
-
+        SetSprite();
     }
-
-
 
     public void Panel_Inventory_Item()
     {
@@ -51,19 +39,11 @@ public class InventoryItem : MonoBehaviour
     }
 
 
-    void Item_in_slot()
+    void SetSprite()
     {
         for (int i = 0; i < items.Count; i++)
         {
-            for (int j = 0; j < slots.Count; j++)
-            {
-                if (i == j)
-                {
-                    slots[i].GetComponent<Image>().sprite = items[i].GetComponent<Item>().item_Sprite;
-
-                }
-            }
-
+            slots[i].GetComponent<Image>().sprite = items[i].GetComponent<Item>().item_Sprite;
         }
     }
 
@@ -76,41 +56,43 @@ public class InventoryItem : MonoBehaviour
 
                 for (int j = 0; j < Items_slots.Count; j++)
                 {
-                    if (Items_slots[j].GetComponent<InventoryItem>().equipped_Item == items[i])
+                    if (Items_slots[j].GetComponent<InventoryItem>().equipedItemObject == items[i])
                     {
-                        if (GetComponent<InventoryItem>().equipped_Item != null)
+                        if (GetComponent<InventoryItem>().equipedItemObject != null)
                         {
-                            Items_slots[j].GetComponent<InventoryItem>().equipped_Item = equipped_Item;
-                            equipped_Item = items[i];                         
+                            Items_slots[j].GetComponent<InventoryItem>().equipedItemObject = equipedItemObject;
+                            equipedItemObject = items[i];
                             text_in_Button.text = "";
                             panel_Inventory_Item.SetActive(false);
                         }
-                        equipped_item = true;
+                        isItemEquiped = true;
                     }
                 }
-                if (equipped_item == false)
+                if (isItemEquiped == false)
                 {
-                    if (equipped_Item == null)
+                    if (equipedItemObject == null)
                     {
-                        equipped_Item = items[i];
-                        GetComponent<Image>().sprite = equipped_Item.GetComponent<Item>().item_Sprite;
+                        equipedItemObject = items[i];
+                        GetComponent<Image>().sprite = equipedItemObject.GetComponent<Item>().item_Sprite;
                         text_in_Button.text = "";
-                        inventoryManager.GetComponent<InventoryManager>().EquipedItem(equipped_Item);
+                        inventoryManager.GetComponent<InventoryManager>().GetItemStats(equipedItemObject);
                     }
                     else
                     {
-                        equipped_Item = items[i];
-                        GetComponent<Image>().sprite = equipped_Item.GetComponent<Item>().item_Sprite;                       
+                        equipedItemObject = items[i];
+                        GetComponent<Image>().sprite = equipedItemObject.GetComponent<Item>().item_Sprite;
                     }
                     panel_Inventory_Item.SetActive(false);
 
                 }
-                equipped_item = false;
+                isItemEquiped = false;
             }
         }
         inventoryManager.GetComponent<InventoryManager>().ReEquipedSprite();
         inventoryManager.GetComponent<InventoryManager>().ReEquipedItem();
     }
+
+
     /*public void ReEquipedItem()
     {
         inventoryManager.GetComponent<InventoryManager>().ReEquipedItem();

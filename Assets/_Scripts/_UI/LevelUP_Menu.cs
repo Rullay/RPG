@@ -11,9 +11,9 @@ public class LevelUP_Menu : MonoBehaviour
     {
         for (int i = 0; i < StatsButton.Count; i++)
         {
-            if (StatsButton[i].GetComponent<StatsUPButton>().clik == true)
+            if (StatsButton[i].GetComponent<StatsUPButton>().TECH_Click == true)
             {               
-                 GameManager.Instance.Player.GetComponent<CharacterPlayerController>().GetStatPoint(StatsButton[i].GetComponent<StatsUPButton>().NameParameter);               
+                 GameManager.Instance.Player.GetComponent<CharacterPlayer>().UpStats(StatsButton[i].GetComponent<StatsUPButton>().NameParameter);               
             }
         }
     }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public partial class CharacterPlayerController : Character
+public partial class CharacterPlayer
 {
     private float TECH_BaseDownMovement = 2;
     private float TECH_JumpSurfaceAngle = 45;
@@ -10,42 +10,14 @@ public partial class CharacterPlayerController : Character
     private Vector2 TECH_MoveInputVector;
     private float TECH_MoveVertical;
 
+    private CharacterController CharacterController;
     private Transform CameraTransform;
 
-    private CharacterController CharacterController;
     private RaycastHit TECH_Hit;
 
-
-    protected override void Start()
+    void InitializedPlayerMovement()
     {
-        base.Start();
-        //DontDestroyOnLoad(gameObject);
         CharacterController = GetComponent<CharacterController>();
-        CameraTransform = GameManager.Instance.CameraBaseTransform;
-        SaveStats();
-    }
-
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            Attack();
-        }
-
-        if (Input.GetKey(KeyCode.O))
-        {
-            CameraTransform.GetComponent<CameraManager>().SetCameraAim(true);
-        }
-        else if (Input.GetKeyUp(KeyCode.O))
-        {
-            CameraTransform.GetComponent<CameraManager>().SetCameraAim(false);
-            RangeAttack(Arrow);
-        }
-        else
-        {
-            CameraTransform.GetComponent<CameraManager>().SetCameraAim(false);
-        }
-        Movement();
     }
 
     void Movement()

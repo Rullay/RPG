@@ -5,26 +5,15 @@ using UnityEngine.UI;
 
 public class StatsUPButton : MonoBehaviour
 {
-    public bool clik;
+    public bool TECH_Click;
     [SerializeField] private GameObject LavelUP_Menu;
     public string NameParameter;
 
-    void Start()
+    public void Click()
     {
         
-    }
-
-   
-    void Update()
-    {
-        
-    }
-
-    public void Clik()
-    {
-        
-        clik = true;
-        LavelUP_Menu.GetComponent<_LavelUP_Menu>().ClickButton();
-        clik = false;
+        TECH_Click = true;
+        LavelUP_Menu.GetComponent<LevelUP_Menu>().ClickButton();
+        TECH_Click = false;
     }
 }
