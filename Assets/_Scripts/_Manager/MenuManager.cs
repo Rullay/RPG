@@ -6,6 +6,7 @@ public class MenuManager : MonoBehaviour
 {
     [SerializeField] private GameObject InventaryMenu;
     [SerializeField] private GameObject LevelUpMenu;
+    [SerializeField] private GameObject LeftBoxMenu;
 
     private bool TECH_IsMenuEnable;
 
@@ -16,7 +17,7 @@ public class MenuManager : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.I))
+        if(Input.GetKeyDown(KeyCode.Tab))
         {
             TECH_IsMenuEnable = !TECH_IsMenuEnable;
             InventaryMenu.SetActive(TECH_IsMenuEnable);
@@ -29,5 +30,17 @@ public class MenuManager : MonoBehaviour
         InventaryMenu.SetActive(false);
         LevelUpMenu.SetActive(false);
         TECH_IsMenuEnable = false;
+        SetScaleMenu();
+    }
+
+    void SetScaleMenu()
+    {
+        float ScreenRatio = (float)(Screen.height) / (float)(Screen.width);
+        LeftBoxMenu.GetComponent<RectTransform>().anchorMax = new Vector2(ScreenRatio,1f);
+    }
+
+    public bool isMenuEnabled()
+    {
+        return TECH_IsMenuEnable;
     }
 }

@@ -23,20 +23,20 @@ public partial class CharacterPlayer : Character
 
     void PlayerControl()
     {
-        if (Input.GetKeyDown(KeyCode.P))
+        if (Input.GetButtonDown("Fire1"))
         {
             Attack();
         }
-        if (Input.GetKeyDown(KeyCode.U))
+        if (Input.GetKeyDown(KeyCode.E))
         {
             ActivateTargetObject();
         }
 
-        if (Input.GetKey(KeyCode.O))
+        if (Input.GetButton("Fire2"))
         {
             CameraTransform.GetComponent<CameraManager>().SetCameraAim(true);
         }
-        else if (Input.GetKeyUp(KeyCode.O))
+        else if (Input.GetButtonUp("Fire2"))
         {
             CameraTransform.GetComponent<CameraManager>().SetCameraAim(false);
             RangeAttack(Arrow);

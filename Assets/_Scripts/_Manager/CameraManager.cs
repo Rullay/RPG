@@ -34,6 +34,7 @@ public class CameraManager : MonoBehaviour
     private Transform PlayerTransform;
     private RaycastHit TECH_Hit;
 
+    private MenuManager TECH_MenuManager;
 
     void Start()
     {
@@ -82,13 +83,15 @@ public class CameraManager : MonoBehaviour
             {
                 Camera.transform.localPosition = new Vector3(0, 0, -TECH_CameraRangeActual);
             }
+            if (!TECH_MenuManager.isMenuEnabled())
+            {
+                //Horizontal
+                transform.Rotate(0, Input.GetAxis("Mouse X") * SET_CameraHorizontalSens, 0);
 
-            //Horizontal
-            transform.Rotate(0, Input.GetAxis("Mouse X") * SET_CameraHorizontalSens, 0);
-
-            //Vertical
-            TECH_CameraActualAngle = Mathf.Clamp(TECH_CameraActualAngle -= Input.GetAxis("Mouse Y") * SET_CameraVerticalSens, SET_CameraMinAngle, SET_CameraMaxAngle);
-            CameraX.localEulerAngles = new Vector3(TECH_CameraActualAngle, 0, 0);
+                //Vertical
+                TECH_CameraActualAngle = Mathf.Clamp(TECH_CameraActualAngle -= Input.GetAxis("Mouse Y") * SET_CameraVerticalSens, SET_CameraMinAngle, SET_CameraMaxAngle);
+                CameraX.localEulerAngles = new Vector3(TECH_CameraActualAngle, 0, 0);
+            }
         }
         else
         {
@@ -103,6 +106,7 @@ public class CameraManager : MonoBehaviour
         Camera = GameManager.Instance.Camera;
         TECH_CameraRangeActual = SET_CameraRange;
         TECH_CameraOffsetActual = 0;
+        TECH_MenuManager = GameManager.Instance.transform.GetComponent<MenuManager>();
     }
 
     public void SetCameraAim(bool State)

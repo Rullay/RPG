@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657815, g: 0.49641192, b: 0.57481617, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -676,6 +676,10 @@ PrefabInstance:
       propertyPath: CameraBaseTransform
       value: 
       objectReference: {fileID: 1382580921}
+    - target: {fileID: 5412698534819743176, guid: 142a4525b8cef40418bbf0719e272d9b, type: 3}
+      propertyPath: InventoryManagerObject
+      value: 
+      objectReference: {fileID: 1911653147}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 142a4525b8cef40418bbf0719e272d9b, type: 3}
 --- !u!1 &1109993763 stripped
@@ -822,13 +826,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2937181606429115949, guid: c115599436f2dae49965f24cd7a3c9eb, type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 810346285}
-    - target: {fileID: 4780697277668721520, guid: c115599436f2dae49965f24cd7a3c9eb, type: 3}
+    - target: {fileID: 676066562560581279, guid: c115599436f2dae49965f24cd7a3c9eb, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 758951687370856612, guid: c115599436f2dae49965f24cd7a3c9eb, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4780697277668721520, guid: c115599436f2dae49965f24cd7a3c9eb, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6361265289271919969, guid: c115599436f2dae49965f24cd7a3c9eb, type: 3}
       propertyPath: m_Pivot.x
@@ -918,6 +926,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 6361265289592667223, guid: c115599436f2dae49965f24cd7a3c9eb, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c115599436f2dae49965f24cd7a3c9eb, type: 3}
 --- !u!1 &1902934964 stripped
@@ -943,6 +955,11 @@ MonoBehaviour:
   STATS_weapone_Damage: 1
   STATS_ranage_Attack: 1
   STATS_engle_of_Deafet: 1
+--- !u!1 &1911653147 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6361265289592667223, guid: c115599436f2dae49965f24cd7a3c9eb, type: 3}
+  m_PrefabInstance: {fileID: 1820846930}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2021889391 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 670159794421576130, guid: d200b70d392dd428b90f2541e8511f17, type: 3}
