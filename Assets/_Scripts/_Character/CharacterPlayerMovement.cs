@@ -14,11 +14,14 @@ public partial class CharacterPlayer
     private Transform CameraTransform;
 
     private RaycastHit TECH_Hit;
+    public Animator animator;
+    public float adsgsdf;
 
     void InitializedPlayerMovement()
     {
         CharacterController = GetComponent<CharacterController>();
     }
+
 
     void Movement()
     {

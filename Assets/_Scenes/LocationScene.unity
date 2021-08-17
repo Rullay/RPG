@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4465766, g: 0.49641156, b: 0.5748176, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657755, g: 0.4964127, b: 0.57481825, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -233,6 +233,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3651298866862871037, guid: c115599436f2dae49965f24cd7a3c9eb, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6361265289271919969, guid: c115599436f2dae49965f24cd7a3c9eb, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -321,10 +325,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
-    - target: {fileID: 6361265289592667223, guid: c115599436f2dae49965f24cd7a3c9eb, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c115599436f2dae49965f24cd7a3c9eb, type: 3}
 --- !u!1 &474279208 stripped
@@ -336,6 +336,11 @@ GameObject:
 Transform:
   m_CorrespondingSourceObject: {fileID: 6913034260662993546, guid: 2d387e57bc55f4fc4a7add8b909f6e8f, type: 3}
   m_PrefabInstance: {fileID: 3598540728946879827}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &770404315 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 4583077919257226611, guid: d200b70d392dd428b90f2541e8511f17, type: 3}
+  m_PrefabInstance: {fileID: 3549838152532276331}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1051224448 stripped
 GameObject:
@@ -576,6 +581,14 @@ PrefabInstance:
     - target: {fileID: 670159794421576130, guid: d200b70d392dd428b90f2541e8511f17, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2888373068331300348, guid: d200b70d392dd428b90f2541e8511f17, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 770404315}
+    - target: {fileID: 6479307609405797753, guid: d200b70d392dd428b90f2541e8511f17, type: 3}
+      propertyPath: m_Name
+      value: ModelC
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d200b70d392dd428b90f2541e8511f17, type: 3}

@@ -39,6 +39,7 @@ public class InventoryItem : MonoBehaviour
     {
         for (int i = 0; i < items.Count; i++)
         {
+            slots[i].SetActive(true);
             slots[i].GetComponent<Slot>().itemSlot = items[i];
             slots[i].GetComponent<Image>().sprite = slots[i].GetComponent<Slot>().itemSlot.GetComponent<Item>().item_Sprite;
         }

@@ -19,6 +19,7 @@ public partial class CharacterPlayer : Character
         UpdateObjectInTarget();
         PlayerControl();
         Movement();
+        animator.SetFloat("Speed", TECH_MoveInputVector.magnitude);
     }
 
     void PlayerControl()

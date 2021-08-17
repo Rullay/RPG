@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    [Header("Object/Transform")]
     public static GameManager Instance = null;
+
+    [Header("Object/Transform")]
     public Transform PlayerTransform;
     public GameObject Player;
     public Transform CameraBaseTransform;

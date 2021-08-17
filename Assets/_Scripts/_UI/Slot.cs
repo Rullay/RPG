@@ -9,15 +9,14 @@ public class Slot : MonoBehaviour
 
     private void Start()
     {
-        inventoryItem = transform.parent.parent.gameObject;
-
-        
+        inventoryItem = transform.parent.parent.parent.gameObject;        
     }
+
     public void Clik()
     {
         if(itemSlot)
         {
-            Debug.Log(itemSlot);
+            Debug.Log(inventoryItem);
             inventoryItem.GetComponent<InventoryItem>().Equiped(itemSlot);
         }  
     }

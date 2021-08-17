@@ -431,8 +431,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67d4aca249427f343a9ba1c786443e87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item_Sprite: {fileID: 21300000, guid: df5589cebad66624e8878698179aaafb, type: 3}
+  item_Sprite: {fileID: 21300000, guid: fb929ca1d0dfed34982b9350b3b76b78, type: 3}
   item_Type: MainHand
+  itemType: 0
   STATS_weapone_Damage: 5
   STATS_ranage_Attack: 2
   STATS_engle_of_Deafet: 4
