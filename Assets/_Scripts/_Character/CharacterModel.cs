@@ -17,6 +17,7 @@ public partial class Character
             if (TECH_Child.GetComponent<TECH_ModelHumanoid>())
             {
                 TECH_Model = TECH_Child.gameObject;
+                Animator = TECH_Model.GetComponent<Animator>();
             }
         }
         if (!TECH_Model)
