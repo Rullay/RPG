@@ -14,8 +14,6 @@ public partial class CharacterPlayer
     private Transform CameraTransform;
 
     private RaycastHit TECH_Hit;
-    public Animator animator;
-    public float adsgsdf;
 
     void InitializedPlayerMovement()
     {
@@ -35,6 +33,8 @@ public partial class CharacterPlayer
             TECH_Model.transform.rotation = CameraTransform.rotation;
         }
 
+        SetMoveHorizontalVector(TECH_MoveVector);
+
         //gravity
         if (Physics.Raycast(transform.position, Vector3.down, 1f + TECH_SurfaceAngleToRangeCast(TECH_JumpSurfaceAngle)))
         {
@@ -49,7 +49,13 @@ public partial class CharacterPlayer
             {
                 TECH_MoveVertical = -TECH_BaseDownMovement;
             }
+            isJump = false;
         }
+        else
+        {
+            isJump = true;
+        }
+
 
         TECH_MoveVertical -= STATS_Gravity * Time.deltaTime;
         TECH_MoveVector = new Vector3(TECH_MoveVector.x, TECH_MoveVertical, TECH_MoveVector.z);

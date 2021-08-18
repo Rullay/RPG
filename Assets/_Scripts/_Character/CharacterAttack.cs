@@ -30,6 +30,8 @@ public partial class Character
 
     protected void Attack()
     {
+        isAttack = true;
+
         TECH_ClosestEnemy = null;
         TECH_TriggerEnemyList = ColliderObject.GetComponent<TECH_AttackTrigger>().TECH_TriggerEnemyList;
         TECH_TriggerEnemyList.Remove(gameObject);

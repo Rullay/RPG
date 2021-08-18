@@ -5,6 +5,10 @@ using UnityEngine;
 public partial class Character
 {
     protected GameObject TECH_Model;
+    [SerializeField] protected Animator Animator;
+
+    protected bool isAttack;
+    protected bool isJump;
 
     void InitializedModel()
     {
@@ -20,5 +24,10 @@ public partial class Character
             Debug.LogWarning("!!! Не найдена модель объекта !!!");
             TECH_Model = gameObject;
         }
+    }
+
+    protected void SetMoveHorizontalVector(Vector3 Vector)
+    {
+        Animator.SetFloat("Speed", Vector.magnitude);
     }
 }
