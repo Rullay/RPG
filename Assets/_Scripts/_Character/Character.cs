@@ -11,4 +11,10 @@ public partial class Character : MonoBehaviour
         InitializedModel();
         
     }
+    protected virtual void Update()
+    {
+        UpdateAnimation();
+    }
+
+
 }

@@ -47,6 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5657c9d5906c54adbbbb8671c306eb52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Animator: {fileID: 0}
   STATS_MoveSpeed: 6
   STATS_MoveRunMultiplier: 2
   STATS_JupmSpeed: 17
@@ -318,9 +319,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9067494816678682295, guid: 886183e39d59f453bb99fd3212bbefd3, type: 3}
       propertyPath: m_Name
-      value: Model
+      value: ModelC
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7608118633752430415, guid: 886183e39d59f453bb99fd3212bbefd3, type: 3}
+    - {fileID: 891961956295929421, guid: 886183e39d59f453bb99fd3212bbefd3, type: 3}
+    - {fileID: 8186755252810954286, guid: 886183e39d59f453bb99fd3212bbefd3, type: 3}
+    - {fileID: 2225824315067577053, guid: 886183e39d59f453bb99fd3212bbefd3, type: 3}
+    - {fileID: 6078162489793474428, guid: 886183e39d59f453bb99fd3212bbefd3, type: 3}
+    - {fileID: 5393668974991736207, guid: 886183e39d59f453bb99fd3212bbefd3, type: 3}
+    - {fileID: 8632599687172591464, guid: 886183e39d59f453bb99fd3212bbefd3, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 886183e39d59f453bb99fd3212bbefd3, type: 3}
 --- !u!4 &1695505681245555770 stripped
 Transform:

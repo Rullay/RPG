@@ -14,8 +14,9 @@ public partial class CharacterPlayer : Character
         SaveStats();
     }
 
-    void Update()
+    protected override void Update()
     {
+        base.Update();
         UpdateObjectInTarget();
         PlayerControl();
         Movement();
@@ -24,9 +25,9 @@ public partial class CharacterPlayer : Character
     void PlayerControl()
     {
         if (Input.GetButtonDown("Fire1"))
-        {
+        {         
             Attack();
-        }
+        }   
         if (Input.GetKeyDown(KeyCode.E))
         {
             ActivateTargetObject();

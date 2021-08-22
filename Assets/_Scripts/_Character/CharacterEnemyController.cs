@@ -30,8 +30,9 @@ public partial class CharacterEnemyController : Character
         NMA.speed = STATS_MoveSpeed;
     }
 
-    void Update()
+    protected override void Update()
     {
+        base.Update();
         if (TECH_State == STATE.Alive)
         {
             switch (TECH_StateAI)

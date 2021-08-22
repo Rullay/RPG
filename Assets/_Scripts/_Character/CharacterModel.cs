@@ -31,4 +31,26 @@ public partial class Character
     {
         Animator.SetFloat("Speed", Vector.magnitude);
     }
+
+    void UpdateAnimation()
+    {
+        if (isAttack == true)
+        {
+            Debug.Log("yebal");
+            Animator.SetBool("Attack", true);
+            
+            StartCoroutine(StopAttack());           
+           
+        }
+        
+        IEnumerator StopAttack()
+        {
+            
+            yield return new WaitForSeconds(1f);               
+            Animator.SetBool("Attack", false);
+            isAttack = false;
+        }
+        
+       // Animator.SetBool("Jump", isJump);
+    }
 }
