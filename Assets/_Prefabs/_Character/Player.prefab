@@ -47,7 +47,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5657c9d5906c54adbbbb8671c306eb52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Animator: {fileID: 0}
+  TEHC_MainHands:
+  - {fileID: 0}
+  - {fileID: 0}
+  Animator: {fileID: 4583077919257226611}
+  isAttack: 0
   STATS_MoveSpeed: 6
   STATS_MoveRunMultiplier: 2
   STATS_JupmSpeed: 17
@@ -96,6 +100,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TECH_TriggerWorldObjectList: []
+--- !u!111 &1137193961
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6479307609405797753}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 0}
+  m_Animations:
+  - {fileID: 7400000, guid: 42f5686b414a4f04386543c5e41a9132, type: 2}
+  - {fileID: 7400000, guid: a18e9f756b8b3774aa5e67376a0ed14e, type: 2}
+  - {fileID: 7400000, guid: 03cd807a83bb2e244968abfd584f8473, type: 2}
+  - {fileID: 7400000, guid: 3e7de3ad53caced47b3227404a7b7534, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1001 &411136060133462005
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -330,8 +353,18 @@ PrefabInstance:
     - {fileID: 5393668974991736207, guid: 886183e39d59f453bb99fd3212bbefd3, type: 3}
     - {fileID: 8632599687172591464, guid: 886183e39d59f453bb99fd3212bbefd3, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 886183e39d59f453bb99fd3212bbefd3, type: 3}
+--- !u!1 &6479307609405797753 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9067494816678682295, guid: 886183e39d59f453bb99fd3212bbefd3, type: 3}
+  m_PrefabInstance: {fileID: 2611289054708902862}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1695505681245555770 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3727446536553392116, guid: 886183e39d59f453bb99fd3212bbefd3, type: 3}
+  m_PrefabInstance: {fileID: 2611289054708902862}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &4583077919257226611 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1992689567132108477, guid: 886183e39d59f453bb99fd3212bbefd3, type: 3}
   m_PrefabInstance: {fileID: 2611289054708902862}
   m_PrefabAsset: {fileID: 0}

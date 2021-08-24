@@ -10,6 +10,7 @@ public class Item : MonoBehaviour
 
     [SerializeField] public Sprite item_Sprite;
     public string item_Type;
+    public string animation_Type;
 
     private enum ItemType
     {
@@ -21,10 +22,21 @@ public class Item : MonoBehaviour
     }
     [SerializeField] private ItemType itemType;
 
+    private enum AnimationType
+    {
+        OneHand,
+        TwoHand, 
+        Bow,
+        Staff,
+        Shield
+    }
+    [SerializeField] private AnimationType animationType;
+
 
     public void Start()
     {
         WriteType();
+        WriteAnimationType();
     }
 
     public void WriteType()
@@ -50,11 +62,37 @@ public class Item : MonoBehaviour
         }
     }
 
+    public void WriteAnimationType()
+    {
+        switch (animationType)
+        {
+            case AnimationType.OneHand:
+                animation_Type = "OneHand";
+                break;
+            case AnimationType.TwoHand:
+                animation_Type = "TwoHand";
+                break;
+            case AnimationType.Bow:
+                animation_Type = "Bow";
+                break;
+            case AnimationType.Staff:
+                animation_Type = "Staff";
+                break;
+            case AnimationType.Shield:
+                animation_Type = "Shield";
+                break;
+
+        }
+
+    }
+
     public void Collected()
     {
         gameObject.SetActive(false);
     }
 }
+
+
 
 
 

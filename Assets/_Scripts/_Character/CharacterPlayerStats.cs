@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public partial class CharacterPlayer
 {
     public int STATS_ExpPointHealth;
     public int STATS_ExpPointStamina;
     public int STATS_ExpPointSpeed;
+    [SerializeField] private Slider TECH_HealthBar;
 
     public void AddItemStats(GameObject TECHE_Actual_Item)
     {
@@ -23,7 +25,13 @@ public partial class CharacterPlayer
             STATS_HealthMax += TECHE_Actual_Item.GetComponent<ItemArmor>().STATS_armor_Health;
             STATS_StaminaMax += TECHE_Actual_Item.GetComponent<ItemArmor>().STATS_armor_Mana;
         }
-    }   
+    }
+    
+    void HealthBar()
+    {
+        TECH_HealthBar.maxValue = STATS_HealthMax;
+        TECH_HealthBar.value = STATS_HealthActual;
+    } 
     
     public void UpStats(string NameState)
     {
