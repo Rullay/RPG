@@ -54,10 +54,10 @@ public partial class Character
                             Animator.SetBool("TwoHandAttack", true);
                             break;
                         case "Bow":
-                            Animator.SetBool("ModelBowAttack", true);
+                            Animator.SetBool("BowAttack", true);
                             break;
                         case "Staff":
-                            Animator.SetBool("ModelStaffAttack", true);
+                            Animator.SetBool("StaffAttack", true);
                             break;
                     }
 
@@ -74,7 +74,7 @@ public partial class Character
         isAttack = false;
         Animator.SetBool("OneHandAttack", false);
         Animator.SetBool("TwoHandAttack", false);
-        Animator.SetBool("ModelBowAttack", false);
-        Animator.SetBool("ModelStaffAttack", false);
+        Animator.SetBool("BowAttack", false);
+        Animator.SetBool("StaffAttack", false);
     }
 }
