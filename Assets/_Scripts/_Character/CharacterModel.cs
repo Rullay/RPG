@@ -5,9 +5,13 @@ using UnityEngine;
 public partial class Character
 {
     protected GameObject TECH_Model;
+    [SerializeField] private List<GameObject> TEHC_MainHands;
     [SerializeField] protected Animator Animator;
+    private int Set_Actual_MainHands;
+    private float TECH_AnimationTime;
+    private float Set_SpeedRatio;
 
-    protected bool isAttack;
+    public bool isAttack;
     protected bool isJump;
 
     void InitializedModel()
@@ -32,25 +36,67 @@ public partial class Character
         Animator.SetFloat("Speed", Vector.magnitude);
     }
 
-    void UpdateAnimation()
+
+
+    protected void AttackAnimation()
     {
-        if (isAttack == true)
+        if (isAttack == false)
         {
-            Debug.Log("yebal");
-            Animator.SetBool("Attack", true);
-            
-            StartCoroutine(StopAttack());           
-           
+          
+            for (int i = 0; i < TEHC_MainHands.Count; i++)
+            {
+               
+                if (TEHC_MainHands[i].activeSelf == true && TEHC_MainHands[i].GetComponent<InventoryItem>().equipedItemObject != null)
+                {
+                    TEHC_MainHands[i].GetComponent<InventoryItem>().equipedItemObject.GetComponent<Item>().WriteAnimationType();
+
+                    Set_SpeedRatio = 60 * STATS_AttackSpeed;
+                    Set_SpeedRatio = 60 / Set_SpeedRatio;
+
+                    Animator.SetFloat("SpeedAnimation", Set_SpeedRatio);
+
+                    TECH_AnimationTime = STATS_AttackSpeed;
+
+                    switch (TEHC_MainHands[i].GetComponent<InventoryItem>().equipedItemObject.GetComponent<Item>().animation_Type)
+                    {
+                        case "OneHand":
+                            Animator.SetBool("OneHandAttack", true);
+                            break;
+                        case "TwoHand":                         
+                            Animator.SetBool("TwoHandAttack", true);                          
+                            break;
+                        case "Bow":
+                            Animator.SetBool("ModelBowAttack", true);
+                            break;
+                        case "Staff":
+                            Animator.SetBool("ModelStaffAttack", true);
+                            break;
+                    }                
+                    Set_Actual_MainHands = i;
+                    isAttack = true;
+                    StartCoroutine(StopAttackAnimation());
+                }
+            }      
         }
-        
-        IEnumerator StopAttack()
+    }
+    IEnumerator StopAttackAnimation()
+    {
+        yield return new WaitForSeconds(TECH_AnimationTime);
+        isAttack = false;
+        switch (TEHC_MainHands[Set_Actual_MainHands].GetComponent<InventoryItem>().equipedItemObject.GetComponent<Item>().animation_Type)
         {
-            
-            yield return new WaitForSeconds(1f);               
-            Animator.SetBool("Attack", false);
-            isAttack = false;
+            case "OneHand":
+                Animator.SetBool("OneHandAttack", false);
+                break;
+            case "TwoHand":
+                Animator.SetBool("TwoHandAttack", false);
+                break;
+            case "Bow":
+                Animator.SetBool("ModelBowAttack", false);
+                break;
+            case "Staff":
+                Animator.SetBool("ModelStaffAttack", false);
+                break;
         }
-        
-       // Animator.SetBool("Jump", isJump);
     }
 }

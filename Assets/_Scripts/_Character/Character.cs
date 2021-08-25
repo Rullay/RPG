@@ -13,7 +13,7 @@ public partial class Character : MonoBehaviour
     }
     protected virtual void Update()
     {
-        UpdateAnimation();
+       // UpdateAnimation();
     }
 
 

@@ -27,6 +27,9 @@ public partial class CharacterPlayer : Character
         if (Input.GetButtonDown("Fire1"))
         {         
             Attack();
+            AttackAnimation();
+
+
         }   
         if (Input.GetKeyDown(KeyCode.E))
         {
