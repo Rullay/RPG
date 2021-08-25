@@ -44,6 +44,7 @@ public partial class CharacterPlayer : Character
         {
             CameraTransform.GetComponent<CameraManager>().SetCameraAim(false);
             RangeAttack(Arrow);
+            AttackAnimation();
         }
         else
         {
