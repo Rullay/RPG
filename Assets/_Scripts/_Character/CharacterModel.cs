@@ -5,13 +5,10 @@ using UnityEngine;
 public partial class Character
 {
     protected GameObject TECH_Model;
-    [SerializeField] private List<GameObject> TEHC_MainHands;
-    [SerializeField] protected Animator Animator;
-    private int Set_Actual_MainHands;
-    private float TECH_AnimationTime;
-    private float Set_SpeedRatio;
+    [SerializeField] private List<GameObject> TECH_MainHands;
+    private Animator Animator;
 
-    public bool isAttack;
+    private bool isAttack;
     protected bool isJump;
 
     void InitializedModel()
@@ -36,34 +33,25 @@ public partial class Character
         Animator.SetFloat("Speed", Vector.magnitude);
     }
 
-
-
     protected void AttackAnimation()
     {
         if (isAttack == false)
         {
-          
-            for (int i = 0; i < TEHC_MainHands.Count; i++)
+            for (int i = 0; i < TECH_MainHands.Count; i++)
             {
-               
-                if (TEHC_MainHands[i].activeSelf == true && TEHC_MainHands[i].GetComponent<InventoryItem>().equipedItemObject != null)
+                if (TECH_MainHands[i].activeSelf == true && TECH_MainHands[i].GetComponent<InventoryItem>().equipedItemObject != null)
                 {
-                    TEHC_MainHands[i].GetComponent<InventoryItem>().equipedItemObject.GetComponent<Item>().WriteAnimationType();
+                    TECH_MainHands[i].GetComponent<InventoryItem>().equipedItemObject.GetComponent<Item>().WriteAnimationType();
 
-                    Set_SpeedRatio = 60 * STATS_AttackSpeed;
-                    Set_SpeedRatio = 60 / Set_SpeedRatio;
+                    Animator.SetFloat("SpeedAnimation", 1 / STATS_AttackSpeed);
 
-                    Animator.SetFloat("SpeedAnimation", Set_SpeedRatio);
-
-                    TECH_AnimationTime = STATS_AttackSpeed;
-
-                    switch (TEHC_MainHands[i].GetComponent<InventoryItem>().equipedItemObject.GetComponent<Item>().animation_Type)
+                    switch (TECH_MainHands[i].GetComponent<InventoryItem>().equipedItemObject.GetComponent<Item>().animation_Type)
                     {
                         case "OneHand":
                             Animator.SetBool("OneHandAttack", true);
                             break;
-                        case "TwoHand":                         
-                            Animator.SetBool("TwoHandAttack", true);                          
+                        case "TwoHand":
+                            Animator.SetBool("TwoHandAttack", true);
                             break;
                         case "Bow":
                             Animator.SetBool("ModelBowAttack", true);
@@ -71,32 +59,22 @@ public partial class Character
                         case "Staff":
                             Animator.SetBool("ModelStaffAttack", true);
                             break;
-                    }                
-                    Set_Actual_MainHands = i;
+                    }
+
                     isAttack = true;
-                    StartCoroutine(StopAttackAnimation());
+                    StartCoroutine(StopAttackAnimation(STATS_AttackSpeed));
                 }
-            }      
+            }
         }
     }
-    IEnumerator StopAttackAnimation()
+
+    IEnumerator StopAttackAnimation(float AnimationTime)
     {
-        yield return new WaitForSeconds(TECH_AnimationTime);
+        yield return new WaitForSeconds(AnimationTime);
         isAttack = false;
-        switch (TEHC_MainHands[Set_Actual_MainHands].GetComponent<InventoryItem>().equipedItemObject.GetComponent<Item>().animation_Type)
-        {
-            case "OneHand":
-                Animator.SetBool("OneHandAttack", false);
-                break;
-            case "TwoHand":
-                Animator.SetBool("TwoHandAttack", false);
-                break;
-            case "Bow":
-                Animator.SetBool("ModelBowAttack", false);
-                break;
-            case "Staff":
-                Animator.SetBool("ModelStaffAttack", false);
-                break;
-        }
+        Animator.SetBool("OneHandAttack", false);
+        Animator.SetBool("TwoHandAttack", false);
+        Animator.SetBool("ModelBowAttack", false);
+        Animator.SetBool("ModelStaffAttack", false);
     }
 }

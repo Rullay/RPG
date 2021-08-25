@@ -9,11 +9,12 @@ public partial class Character : MonoBehaviour
         InitializedAttack();
         InitializedStats();
         InitializedModel();
-        
+
     }
+
     protected virtual void Update()
     {
-       // UpdateAnimation();
+
     }
 
 

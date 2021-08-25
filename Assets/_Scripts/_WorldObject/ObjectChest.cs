@@ -6,6 +6,7 @@ public class ObjectChest : WorldObject
 {
     [SerializeField] private GameObject ItemPrefab;
     private bool TECH_isOpen = false;
+    private GameObject TECH_ItemObject;
 
     public override void Start()
     {
@@ -17,7 +18,10 @@ public class ObjectChest : WorldObject
         base.Activate();
         if (!TECH_isOpen)
         {
-            GameManager.Instance.InventoryManager.ItemDispenser(ItemPrefab);
+            TECH_ItemObject = GameObject.Instantiate(ItemPrefab, GameManager.Instance.PlayerTransform);
+            TECH_ItemObject.SetActive(false);
+
+            GameManager.Instance.InventoryManager.ItemDispenser(TECH_ItemObject);
             TECH_isOpen = true;
         }
     }
