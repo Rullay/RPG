@@ -6,7 +6,7 @@ public class Attack : MonoBehaviour
 {
     [SerializeField] private GameObject Arrow;
 
-    private List<GameObject> TECH_TriggerEnemyList;
+    private List<GameObject> TECH_TriggerEnemyList = new List<GameObject>();
     private GameObject TECH_ClosestEnemy;
     private float TECH_ClosestEnemyRange;
 
