@@ -2,8 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public partial class Character
+public class StatsEnemy : Stats
 {
-    [SerializeField] protected GameObject Arrow;
-
+    [SerializeField] private int STATS_ExpPerDeath;
 }

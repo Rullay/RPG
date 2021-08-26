@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4190813219320114733
+--- !u!1 &8798879004495369009
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,24 +8,24 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3725497128592152353}
-  - component: {fileID: 6331593913964374398}
-  - component: {fileID: 926188962889181498}
-  - component: {fileID: 1185432010}
+  - component: {fileID: 8322854812974180925}
+  - component: {fileID: 1724158078051406946}
+  - component: {fileID: 5542062285509710886}
+  - component: {fileID: 1071833102430328244}
   m_Layer: 2
-  m_Name: TECH_AttackObject
+  m_Name: TECH_TakeTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3725497128592152353
+--- !u!4 &8322854812974180925
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4190813219320114733}
+  m_GameObject: {fileID: 8798879004495369009}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -33,26 +33,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &6331593913964374398
+--- !u!135 &1724158078051406946
 SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4190813219320114733}
+  m_GameObject: {fileID: 8798879004495369009}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1
+  m_Radius: 2
   m_Center: {x: 0, y: 0, z: 0}
---- !u!54 &926188962889181498
+--- !u!54 &5542062285509710886
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4190813219320114733}
+  m_GameObject: {fileID: 8798879004495369009}
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
@@ -62,16 +62,16 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
---- !u!114 &1185432010
+--- !u!114 &1071833102430328244
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4190813219320114733}
+  m_GameObject: {fileID: 8798879004495369009}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f788469ad52f48218ca203cc9340c42, type: 3}
+  m_Script: {fileID: 11500000, guid: d9d1fb1a4b3414f8e957b11800eac5e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Arrow: {fileID: 399317659120336007, guid: 5768199be7063482a89fe005796913c0, type: 3}
+  TECH_TriggerWorldObjectList: []

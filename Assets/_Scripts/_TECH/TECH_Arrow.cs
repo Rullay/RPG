@@ -43,10 +43,10 @@ public class TECH_Arrow : MonoBehaviour
         if (other.gameObject != TECH_Owner && !other.isTrigger)
         {
 
-            if (other.GetComponent<Character>())
+            if (other.GetComponent<Stats>())
             {
                 transform.SetParent(other.transform);
-                other.GetComponent<Character>().GetDamage(STATS_Damage);
+                other.GetComponent<Stats>().TakeDamage(STATS_Damage);
             }
             TECH_isFly = false;
         }

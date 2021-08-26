@@ -10,6 +10,6 @@ public class LevelUP_Menu : MonoBehaviour
 
     public void ClickButton(string NameParameter)
     {
-        GameManager.Instance.Player.GetComponent<CharacterPlayer>().UpStats(NameParameter);
+        GameManager.Instance.Player.GetComponent<StatsPlayer>().UpStats(NameParameter);
     }
 }

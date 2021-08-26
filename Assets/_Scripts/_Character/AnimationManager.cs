@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public partial class Character
+public class AnimationManager : MonoBehaviour
 {
     protected GameObject TECH_Model;
     [SerializeField] private List<GameObject> TECH_MainHands;
@@ -11,7 +11,7 @@ public partial class Character
     private bool isAttack;
     protected bool isJump;
 
-    void InitializedModel()
+    void Start()
     {
         foreach (Transform TECH_Child in transform)
         {
@@ -28,12 +28,12 @@ public partial class Character
         }
     }
 
-    protected void SetMoveHorizontalVector(Vector3 Vector)
+    public void SetMoveHorizontalVector(Vector3 Vector)
     {
         Animator.SetFloat("Speed", Vector.magnitude);
     }
 
-    protected void AttackAnimation()
+    public void PlayAttackAnimation(float AttackSpeed)
     {
         if (isAttack == false)
         {
@@ -43,7 +43,7 @@ public partial class Character
                 {
                     TECH_MainHands[i].GetComponent<InventoryItem>().equipedItemObject.GetComponent<Item>().WriteAnimationType();
 
-                    Animator.SetFloat("SpeedAnimation", 1 / STATS_AttackSpeed);
+                    Animator.SetFloat("SpeedAnimation", 1 / AttackSpeed);
 
                     switch (TECH_MainHands[i].GetComponent<InventoryItem>().equipedItemObject.GetComponent<Item>().animation_Type)
                     {
@@ -62,7 +62,7 @@ public partial class Character
                     }
 
                     isAttack = true;
-                    StartCoroutine(StopAttackAnimation(STATS_AttackSpeed));
+                    StartCoroutine(StopAttackAnimation(AttackSpeed));
                 }
             }
         }

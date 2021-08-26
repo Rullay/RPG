@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public partial class CharacterPlayer
+public class StatsPlayer : Stats
 {
     public int STATS_ExpPointHealth;
     public int STATS_ExpPointStamina;
@@ -14,23 +14,23 @@ public partial class CharacterPlayer
     {
         if (TECHE_Actual_Item.GetComponent<ItemWeapone>() != null)
         {
-            STATS_AttackDamage += TECHE_Actual_Item.GetComponent<ItemWeapone>().STATS_weapone_Damage;
-            STATS_AttackRange += TECHE_Actual_Item.GetComponent<ItemWeapone>().STATS_ranage_Attack;
-            STATS_AttackAngle += TECHE_Actual_Item.GetComponent<ItemWeapone>().STATS_engle_of_Deafet;
+            AttackDamage += TECHE_Actual_Item.GetComponent<ItemWeapone>().STATS_weapone_Damage;
+            AttackRange += TECHE_Actual_Item.GetComponent<ItemWeapone>().STATS_ranage_Attack;
+            AttackAngle += TECHE_Actual_Item.GetComponent<ItemWeapone>().STATS_engle_of_Deafet;
         }
 
         if (TECHE_Actual_Item.GetComponent<ItemArmor>() != null)
         {
            
-            STATS_HealthMax += TECHE_Actual_Item.GetComponent<ItemArmor>().STATS_armor_Health;
-            STATS_StaminaMax += TECHE_Actual_Item.GetComponent<ItemArmor>().STATS_armor_Mana;
+            HealthMax += TECHE_Actual_Item.GetComponent<ItemArmor>().STATS_armor_Health;
+            StaminaMax += TECHE_Actual_Item.GetComponent<ItemArmor>().STATS_armor_Mana;
         }
     }
     
     void HealthBar()
     {
-        TECH_HealthBar.maxValue = STATS_HealthMax;
-        TECH_HealthBar.value = STATS_HealthActual;
+        TECH_HealthBar.maxValue = HealthMax;
+        TECH_HealthBar.value = HealthActual;
     } 
     
     public void UpStats(string NameState)
@@ -47,11 +47,9 @@ public partial class CharacterPlayer
                 STATS_ExpPointSpeed++;
                 break;
         }
-        TECH_ReCalculateStats();
-
     }
 
-    void SaveStats()
+    /*void SaveStats()
 
     {
         PlayerPrefs.SetInt("STATS_weapone_Damage", STATS_AttackDamage);
@@ -73,5 +71,5 @@ public partial class CharacterPlayer
             STATS_HealthMax = PlayerPrefs.GetInt("STATS_Health");
             STATS_StaminaMax = PlayerPrefs.GetFloat("STATS_Stamina");
         }
-    }
+    }*/
 }

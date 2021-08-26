@@ -2,45 +2,48 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public partial class Character
+public class Attack : MonoBehaviour
 {
-    private GameObject ColliderObject;
+    [SerializeField] private GameObject Arrow;
+
     private List<GameObject> TECH_TriggerEnemyList;
     private GameObject TECH_ClosestEnemy;
     private float TECH_ClosestEnemyRange;
 
     private RaycastHit TECH_CameraHit;
 
-    void InitializedAttack()
-    {
-        foreach (Transform TECH_Child in transform)
-        {
-            if (TECH_Child!.GetComponent<TECH_AttackTrigger>())
-            {
-                ColliderObject = TECH_Child.gameObject;
-            }
-        }
-        if (!ColliderObject)
-        {
-            Debug.LogWarning("!!! Не найден объект с триггером попадания !!!");
-        }
 
-        TECH_RecalculateCollider();
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other!.GetComponent<Stats>())
+        {
+            TECH_TriggerEnemyList.Add(other.gameObject);
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other!.GetComponent<Stats>())
+        {
+            TECH_TriggerEnemyList.Remove(other.gameObject);
+        }
     }
 
-    protected void Attack()
-    {
 
+
+    public void MeleeAttack(int Damage, float Angle, float Range, bool isCleaving)
+    {
+        //PlayAttackAnimation(STATS_AttackSpeed);
+
+        SetAttackRange(Range);
 
         TECH_ClosestEnemy = null;
-        TECH_TriggerEnemyList = ColliderObject.GetComponent<TECH_AttackTrigger>().TECH_TriggerEnemyList;
-        TECH_TriggerEnemyList.Remove(gameObject);
 
         if (TECH_TriggerEnemyList.Count != 0)
         {
             foreach (GameObject Object in TECH_TriggerEnemyList)
             {
-                if (Mathf.Abs(Vector3.Angle(Object.transform.position - TECH_Model.transform.position, TECH_Model.transform.forward)) < STATS_AttackAngle * 0.5f)
+                if (Mathf.Abs(Vector3.Angle(Object.transform.position - transform.position, transform.forward)) < Angle * 0.5f)
                 {
                     if (!TECH_ClosestEnemy)
                     {
@@ -53,30 +56,33 @@ public partial class Character
                 }
             }
 
-            if (STATS_isAttackCleaving)
+            if (isCleaving)
             {
                 foreach (GameObject Object in TECH_TriggerEnemyList)
                 {
-                    Object.GetComponent<Character>().GetDamage(STATS_AttackDamage);
+                    Object.GetComponent<Stats>().TakeDamage(Damage);
                 }
             }
             else if (TECH_ClosestEnemy)
             {
-                TECH_ClosestEnemy.GetComponent<Character>().GetDamage(STATS_AttackDamage);
+                TECH_ClosestEnemy.GetComponent<Stats>().TakeDamage(Damage);
             }
         }
     }
 
-    protected void RangeAttack(GameObject Arrow)
+    public void RangeAttack(int Damage, GameObject Arrow)
     {
+        //PlayAttackAnimation(STATS_AttackSpeed);
         GameObject ArrowObject = Instantiate<GameObject>(Arrow, transform.position, Quaternion.Euler(Vector3.zero));
-        ArrowObject.GetComponent<TECH_Arrow>().Initialized(gameObject, TECH_CalculateDirectionVector(), STATS_AttackDamage);
+        ArrowObject.GetComponent<TECH_Arrow>().Initialized(gameObject, TECH_CalculateDirectionVector(), Damage);
     }
 
-    void TECH_RecalculateCollider()
+    public void SetAttackRange(float Range)
     {
-        ColliderObject.transform.localScale = new Vector3(STATS_AttackRange + 0.5f, 1, 1);
+        transform.localScale = new Vector3(Range + 0.5f, 1, 1);
     }
+
+    // TECH ///////////////////////////////
 
     void TECH_SetClosestEnemy(GameObject Object)
     {

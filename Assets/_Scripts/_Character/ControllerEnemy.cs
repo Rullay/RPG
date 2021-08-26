@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public partial class CharacterEnemyController : Character
+public class ControllerEnemy : MonoBehaviour
 {
     private enum STATE_AI { Patrol, GoToPatrol, Find, GoToAttack, Attack }
     private STATE_AI TECH_StateAI;
@@ -18,22 +18,23 @@ public partial class CharacterEnemyController : Character
     [SerializeField] private float STATS_DetectionRange;
     [SerializeField] private float STATS_VisionRange;
 
-    protected override void Start()
+    private Stats Stats;
+
+    void Start()
     {
-        base.Start();
         Target = GameManager.Instance.Player;
+        Stats = GetComponent<Stats>();
 
         TargetTransform = Target.transform;
         TECH_StartPosition = transform.position;
         NMA = GetComponent<NavMeshAgent>();
 
-        NMA.speed = STATS_MoveSpeed;
+        NMA.speed = Stats.MoveSpeed;
     }
 
-    protected override void Update()
+    void Update()
     {
-        base.Update();
-        if (TECH_State == STATE.Alive)
+        if (Stats.TECH_State == Stats.STATE.Alive)
         {
             switch (TECH_StateAI)
             {
@@ -87,13 +88,13 @@ public partial class CharacterEnemyController : Character
 
     void AI_Attack()
     {
-        Attack();
+        //Attack();
         TECH_StateAI = STATE_AI.GoToAttack;
     }
 
     void AI_GoToAttack()
     {
-        if (TECH_GetDistanceTo(TargetTransform.position) < STATS_AttackRange * 0.8f)
+        if (TECH_GetDistanceTo(TargetTransform.position) < Stats.AttackRange * 0.8f)
         {
             TECH_StateAI = STATE_AI.Attack;
         }

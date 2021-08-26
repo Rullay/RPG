@@ -23,13 +23,13 @@ public class InventoryManager : MonoBehaviour
 
     public void GetItemStats(GameObject TECH_Actual_Item)
     {
-        GameManager.Instance.Player.GetComponent<CharacterPlayer>().AddItemStats(TECH_Actual_Item);
+        GameManager.Instance.Player.GetComponent<StatsPlayer>().AddItemStats(TECH_Actual_Item);
     }
 
 
     public void ReEquipedItem()
     {
-        GameManager.Instance.Player.GetComponent<CharacterPlayer>().LoadStats();
+        //GameManager.Instance.Player.GetComponent<CharacterPlayer>().LoadStats();
         for (int i = 0; i < inventory_Types.Count; i++)
         {
             if (inventory_Types[i].GetComponent<InventoryItem>().equipedItemObject != null && inventory_Types[i].activeSelf == true)
