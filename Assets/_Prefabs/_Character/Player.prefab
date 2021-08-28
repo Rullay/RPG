@@ -228,6 +228,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CameraX: {fileID: 1337748341984143939}
+  Camera: {fileID: 4358490280155485493}
   SET_CameraMinAngle: -30
   SET_CameraMaxAngle: 70
   SET_CameraVerticalSens: 10
@@ -270,25 +271,6 @@ Transform:
   m_Father: {fileID: 670159794421576130}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!111 &7151545364597001452
-Animation:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6479307609405797753}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 0}
-  m_Animations:
-  - {fileID: 7400000, guid: 42f5686b414a4f04386543c5e41a9132, type: 2}
-  - {fileID: 7400000, guid: a18e9f756b8b3774aa5e67376a0ed14e, type: 2}
-  - {fileID: 7400000, guid: 03cd807a83bb2e244968abfd584f8473, type: 2}
-  - {fileID: 7400000, guid: 3e7de3ad53caced47b3227404a7b7534, type: 2}
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_CullingType: 0
 --- !u!1 &5943883322797864380
 GameObject:
   m_ObjectHideFlags: 0
@@ -336,6 +318,25 @@ MonoBehaviour:
   TECH_MainHands:
   - {fileID: 0}
   - {fileID: 0}
+--- !u!111 &7151545364597001452
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6479307609405797753}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 0}
+  m_Animations:
+  - {fileID: 7400000, guid: 42f5686b414a4f04386543c5e41a9132, type: 2}
+  - {fileID: 7400000, guid: a18e9f756b8b3774aa5e67376a0ed14e, type: 2}
+  - {fileID: 7400000, guid: 03cd807a83bb2e244968abfd584f8473, type: 2}
+  - {fileID: 7400000, guid: 3e7de3ad53caced47b3227404a7b7534, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &6706678610500718391
 GameObject:
   m_ObjectHideFlags: 0
