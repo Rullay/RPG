@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class CameraManager : MonoBehaviour
 {
-    private GameObject Camera;
-
     [SerializeField] private Transform CameraX;
+    [SerializeField] private Transform Camera;
 
     [SerializeField] private float SET_CameraMinAngle;
     [SerializeField] private float SET_CameraMaxAngle;
@@ -29,13 +28,10 @@ public class CameraManager : MonoBehaviour
 
     private RaycastHit TECH_Hit;
 
-    private MenuManager TECH_MenuManager;
-
     void Start()
     {
-        Camera = GameManager.Instance.Camera;
         TECH_CameraRangeActual = SET_CameraRange;
-        TECH_MenuManager = GameManager.Instance.transform.GetComponent<MenuManager>();
+        //TECH_MenuManager = GameManager.Instance.transform.GetComponent<MenuManager>();
     }
 
     void LateUpdate()
@@ -73,15 +69,13 @@ public class CameraManager : MonoBehaviour
         {
             Camera.transform.localPosition = new Vector3(0, 0, -TECH_CameraRangeActual);
         }
-        if (!TECH_MenuManager.isMenuEnabled())
-        {
             //Horizontal
             transform.Rotate(0, Input.GetAxis("Mouse X") * SET_CameraHorizontalSens, 0);
 
             //Vertical
             TECH_CameraActualAngle = Mathf.Clamp(TECH_CameraActualAngle -= Input.GetAxis("Mouse Y") * SET_CameraVerticalSens, SET_CameraMinAngle, SET_CameraMaxAngle);
             CameraX.localEulerAngles = new Vector3(TECH_CameraActualAngle, 0, 0);
-        }
+        
 
     }
 
