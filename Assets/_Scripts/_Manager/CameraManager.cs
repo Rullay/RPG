@@ -16,12 +16,9 @@ public class CameraManager : MonoBehaviour
     [SerializeField] private float SET_CameraRangeAim;
     [SerializeField] private float SET_CameraSpeed;
     [SerializeField] private float SET_CameraOffset;
-    [SerializeField] private float SET_CameraTimeToBack;
-
 
     private float TECH_CameraRangeActual;
-    private float TECH_CameraTimeToBackActual;
-
+ 
     private bool TECH_isCameraAim;
     private bool TECH_isCameraWatchToPoint;
     private float TECH_CameraActualAngle;
@@ -37,12 +34,8 @@ public class CameraManager : MonoBehaviour
     void LateUpdate()
     {
         //Range
-        if (TECH_CameraTimeToBackActual > 0 && !TECH_isCameraAim)
-        {
-            TECH_CameraTimeToBackActual -= Time.deltaTime;
-        }
-        else
-        {
+
+
             if (!TECH_isCameraAim)
             {
                 TECH_CameraRangeActual += SET_CameraSpeed * Time.deltaTime;
@@ -50,19 +43,16 @@ public class CameraManager : MonoBehaviour
             else
             {
                 TECH_CameraRangeActual -= SET_CameraSpeed * Time.deltaTime;
-                if (TECH_CameraRangeActual <= SET_CameraRangeAim)
-                {
-                    TECH_CameraTimeToBackActual = SET_CameraTimeToBack;
-                }
+                
             }
             TECH_CameraRangeActual = Mathf.Clamp(TECH_CameraRangeActual, SET_CameraRangeAim, SET_CameraRange);
-        }
+        
 
 
         //Raycast
         if (Physics.Raycast(transform.position, Camera.transform.position - transform.position, out TECH_Hit, TECH_CameraRangeActual))
         {
-            Debug.Log(TECH_Hit.transform);
+           
             Camera.transform.position = transform.position + (TECH_Hit.point - transform.position) * 0.9f;
         }
         else
@@ -86,6 +76,6 @@ public class CameraManager : MonoBehaviour
 
     public bool GetCameraAim()
     {
-        return (TECH_isCameraAim || TECH_CameraTimeToBackActual > 0);
+        return (TECH_isCameraAim);
     }
 }

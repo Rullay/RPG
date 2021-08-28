@@ -5,25 +5,29 @@ using UnityEngine.UI;
 
 public class StatsPlayer : Stats
 {
-    public int STATS_ExpPointHealth;
-    public int STATS_ExpPointStamina;
-    public int STATS_ExpPointSpeed;
+    public int ExpPointHealth;
+    public int ExpPointStamina;
+    public int ExpPointSpeed;
+    public string AttackAnimation;
     [SerializeField] private Slider TECH_HealthBar;
 
-    public void AddItemStats(GameObject TECHE_Actual_Item)
+    public void AddItemStats(GameObject TECH_Actual_Item)
     {
-        if (TECHE_Actual_Item.GetComponent<ItemWeapone>() != null)
+        if (TECH_Actual_Item.GetComponent<ItemWeapone>() != null)
         {
-            AttackDamage += TECHE_Actual_Item.GetComponent<ItemWeapone>().STATS_weapone_Damage;
-            AttackRange += TECHE_Actual_Item.GetComponent<ItemWeapone>().STATS_ranage_Attack;
-            AttackAngle += TECHE_Actual_Item.GetComponent<ItemWeapone>().STATS_engle_of_Deafet;
+            AttackAnimation = TECH_Actual_Item.GetComponent<ItemWeapone>().animation_Type;
+            AttackDamage = TECH_Actual_Item.GetComponent<ItemWeapone>().STATS_weapone_Damage;
+            AttackRange = TECH_Actual_Item.GetComponent<ItemWeapone>().STATS_ranage_Attack;
+            AttackAngle = TECH_Actual_Item.GetComponent<ItemWeapone>().STATS_engle_of_Deafet;
+            isAttackCleaving = TECH_Actual_Item.GetComponent<ItemWeapone>().STATS_is_Cleaving;
+            AttackSpeed = TECH_Actual_Item.GetComponent<ItemWeapone>().STATS_attack_Speed;
         }
 
-        if (TECHE_Actual_Item.GetComponent<ItemArmor>() != null)
+        if (TECH_Actual_Item.GetComponent<ItemArmor>() != null)
         {
            
-            HealthMax += TECHE_Actual_Item.GetComponent<ItemArmor>().STATS_armor_Health;
-            StaminaMax += TECHE_Actual_Item.GetComponent<ItemArmor>().STATS_armor_Mana;
+            HealthMax += TECH_Actual_Item.GetComponent<ItemArmor>().STATS_armor_Health;
+            StaminaMax += TECH_Actual_Item.GetComponent<ItemArmor>().STATS_armor_Mana;
         }
     }
     
@@ -38,13 +42,13 @@ public class StatsPlayer : Stats
         switch(NameState)
         {
             case "Stamina":
-                STATS_ExpPointStamina++;
+                ExpPointStamina++;
                 break;
             case "Health":
-                STATS_ExpPointHealth++;
+                ExpPointHealth++;
                 break;
             case "Speed":
-                STATS_ExpPointSpeed++;
+                ExpPointSpeed++;
                 break;
         }
     }

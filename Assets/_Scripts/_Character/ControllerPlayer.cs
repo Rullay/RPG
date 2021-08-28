@@ -9,6 +9,7 @@ public class ControllerPlayer : MonoBehaviour
     [SerializeField] GameObject Obj_Target;
     [SerializeField] GameObject Obj_Model;
     [SerializeField] GameObject Obj_Rotate;
+   
 
     private float TECH_BaseDownMovement = 2;
     private float TECH_JumpSurfaceAngle = 45;
@@ -18,52 +19,72 @@ public class ControllerPlayer : MonoBehaviour
     private CharacterController CharacterController;
     private RaycastHit TECH_Hit;
 
-    private Stats Stats;
+
+    private CameraManager cameraManager;
+    private StatsPlayer stats;
+    private Attack attack;
+    private AnimationManager animationManager;
 
     private bool isJump;
+    private bool isAttack;
+    
 
     void Start()
     {
         CharacterController = GetComponent<CharacterController>();
-        Stats = GetComponent<Stats>();
+        stats = GetComponent<StatsPlayer>();
+        cameraManager = Obj_Camera.GetComponent<CameraManager>();
+        attack = Obj_Attack.GetComponent<Attack>();
+        animationManager = Obj_Model.GetComponent<AnimationManager>();
     }
 
     void Update()
     {
         if (Input.GetButtonDown("Fire1"))
         {
-            //Attack();
+            if(!isAttack)
+            {
+                isAttack = true;
+                attack.MeleeAttack(stats.AttackDamage, stats.AttackAngle, stats.AttackRange, stats.isAttackCleaving);
+                animationManager.PlayAttackAnimation(stats.AttackSpeed, stats.AttackAnimation);
+            }
+
         }
+
         if (Input.GetKeyDown(KeyCode.E))
         {
             Obj_Target.GetComponent<Activate>().ActivateTargetObject();
         }
 
-        if (Input.GetButton("Fire2"))
+        if (Input.GetKeyDown(KeyCode.R))
         {
-            Obj_Camera.GetComponent<CameraManager>().SetCameraAim(true);
+           
+            if(!cameraManager.GetCameraAim())
+            {
+                cameraManager.SetCameraAim(true);
+                animationManager.AnimationPlayAim(stats.AttackAnimation);
+            }
+            else
+            {
+                cameraManager.SetCameraAim(false);
+                animationManager.AnimationStopAim();
+            }          
         }
-        else if (Input.GetButtonUp("Fire2"))
-        {
-            Obj_Camera.GetComponent<CameraManager>().SetCameraAim(false);
-            //RangeAttack(Arrow);
-        }
-        else
-        {
-            Obj_Camera.GetComponent<CameraManager>().SetCameraAim(false);
-        }
-
         Movement();
     }
 
-
+    public void AttackEnd()
+    {
+        isAttack = false;
+        attack.MeleeAttack(stats.AttackDamage, stats.AttackAngle, stats.AttackRange, stats.isAttackCleaving);
+    }
 
 
     void Movement()
     {
         TECH_MoveInputVector = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
         TECH_MoveInputVector = TECH_MoveInputVector.normalized * Mathf.Clamp(TECH_MoveInputVector.magnitude, 0, 1);
-        TECH_MoveVector = Obj_Camera.transform.TransformVector(TECH_MoveInputVector.x, 0, TECH_MoveInputVector.y) * Stats.MoveSpeed;
+        TECH_MoveVector = Obj_Camera.transform.TransformVector(TECH_MoveInputVector.x, 0, TECH_MoveInputVector.y) * stats.MoveSpeed;
 
         Obj_Rotate.transform.LookAt(Obj_Rotate.transform.position + TECH_MoveVector);
         if (Obj_Camera.GetComponent<CameraManager>().GetCameraAim())
@@ -78,7 +99,7 @@ public class ControllerPlayer : MonoBehaviour
         {
             if (Input.GetButtonDown("Jump") && TECH_MoveVertical <= 0)
             {
-                TECH_MoveVertical += Stats.JupmSpeed;
+                TECH_MoveVertical += stats.JupmSpeed;
             }
         }
         if (Physics.SphereCast(transform.position, 0.5f, Vector3.down, out TECH_Hit, 0.6f))
@@ -95,7 +116,7 @@ public class ControllerPlayer : MonoBehaviour
         }
 
 
-        TECH_MoveVertical -= Stats.Gravity * Time.deltaTime;
+        TECH_MoveVertical -= stats.Gravity * Time.deltaTime;
         TECH_MoveVector = new Vector3(TECH_MoveVector.x, TECH_MoveVertical, TECH_MoveVector.z);
 
         //End

@@ -33,8 +33,6 @@ public class Attack : MonoBehaviour
 
     public void MeleeAttack(int Damage, float Angle, float Range, bool isCleaving)
     {
-        //PlayAttackAnimation(STATS_AttackSpeed);
-
         SetAttackRange(Range);
 
         TECH_ClosestEnemy = null;

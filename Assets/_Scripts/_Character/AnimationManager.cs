@@ -33,48 +33,55 @@ public class AnimationManager : MonoBehaviour
         Animator.SetFloat("Speed", Vector.magnitude);
     }
 
-    public void PlayAttackAnimation(float AttackSpeed)
+    public void PlayAttackAnimation(float AttackSpeed, string WeaponeType)
     {
-        if (isAttack == false)
+
+        Animator.SetFloat("SpeedAnimation", 1 / AttackSpeed);
+
+        switch (WeaponeType)
         {
-            for (int i = 0; i < TECH_MainHands.Count; i++)
-            {
-                if (TECH_MainHands[i].activeSelf == true && TECH_MainHands[i].GetComponent<InventoryItem>().equipedItemObject != null)
-                {
-                    TECH_MainHands[i].GetComponent<InventoryItem>().equipedItemObject.GetComponent<Item>().WriteAnimationType();
-
-                    Animator.SetFloat("SpeedAnimation", 1 / AttackSpeed);
-
-                    switch (TECH_MainHands[i].GetComponent<InventoryItem>().equipedItemObject.GetComponent<Item>().animation_Type)
-                    {
-                        case "OneHand":
-                            Animator.SetBool("OneHandAttack", true);
-                            break;
-                        case "TwoHand":
-                            Animator.SetBool("TwoHandAttack", true);
-                            break;
-                        case "Bow":
-                            Animator.SetBool("BowAttack", true);
-                            break;
-                        case "Staff":
-                            Animator.SetBool("StaffAttack", true);
-                            break;
-                    }
-
-                    isAttack = true;
-                    StartCoroutine(StopAttackAnimation(AttackSpeed));
-                }
-            }
+            case "OneHand":
+                Animator.SetBool("OneHandAttack", true);
+                break;
+            case "TwoHand":
+                Animator.SetBool("TwoHandAttack", true);
+                break;
+            case "Bow":
+                Animator.SetBool("BowAttack", true);
+                break;
+            case "Staff":
+                Animator.SetBool("StaffAttack", true);
+                break;
         }
+        StartCoroutine(StopAttackAnimation(AttackSpeed));
     }
 
     IEnumerator StopAttackAnimation(float AnimationTime)
     {
         yield return new WaitForSeconds(AnimationTime);
-        isAttack = false;
         Animator.SetBool("OneHandAttack", false);
         Animator.SetBool("TwoHandAttack", false);
         Animator.SetBool("BowAttack", false);
         Animator.SetBool("StaffAttack", false);
+        GameManager.Instance.Player.GetComponent<ControllerPlayer>().AttackEnd();
     }
+
+    public void AnimationPlayAim(string WeaponeType)
+    {
+        switch (WeaponeType)
+        {
+            case "Bow":
+                Animator.SetBool("BowAim", true);
+                break;
+            case "Staff":
+                Animator.SetBool("StaffAim", true);
+                break;
+        }
+    }
+    public void AnimationStopAim()
+    {
+        Animator.SetBool("BowAim", false);
+        // Animator.SetBool("StaffAim", false);
+    }
+
 }

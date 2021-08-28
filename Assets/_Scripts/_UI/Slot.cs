@@ -16,7 +16,6 @@ public class Slot : MonoBehaviour
     {
         if(itemSlot)
         {
-            Debug.Log(inventoryItem);
             inventoryItem.GetComponent<InventoryItem>().Equiped(itemSlot);
         }  
     }
