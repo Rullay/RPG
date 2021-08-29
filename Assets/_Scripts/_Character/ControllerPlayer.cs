@@ -92,7 +92,7 @@ public class ControllerPlayer : MonoBehaviour
             Obj_Rotate.transform.rotation = Obj_Camera.transform.rotation;
         }
 
-        //SetMoveHorizontalVector(TECH_MoveVector);
+        animationManager.SetMoveHorizontal(TECH_MoveVector.magnitude);
 
         //Gravity
         if (Physics.Raycast(transform.position, Vector3.down, 1f + TECH_SurfaceAngleToRangeCast(TECH_JumpSurfaceAngle)))

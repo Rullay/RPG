@@ -28,9 +28,9 @@ public class AnimationManager : MonoBehaviour
         }
     }
 
-    public void SetMoveHorizontalVector(Vector3 Vector)
+    public void SetMoveHorizontal(float Speed)
     {
-        Animator.SetFloat("Speed", Vector.magnitude);
+        Animator.SetFloat("Speed", Speed);
     }
 
     public void PlayAttackAnimation(float AttackSpeed, string WeaponeType)
