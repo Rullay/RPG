@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class ItemArmor : Item
 {
-    public int STATS_armor_Armor;
     public int STATS_armor_Health;
-    public int STATS_armor_Mana;
+    public float STATS_armor_Stamina;
+    public float STATS_armor_StaminaReg;
+    public float STATS_armor_MoveSpeed;
 
 
 

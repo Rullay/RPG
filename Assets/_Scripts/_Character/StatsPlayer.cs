@@ -10,6 +10,13 @@ public class StatsPlayer : Stats
     public int ExpPointSpeed;
     public string AttackAnimation;
     [SerializeField] private Slider TECH_HealthBar;
+    private int attackCleaving;
+
+    private void Start()
+    {
+        SaveStats();
+    }
+
 
     public void AddItemStats(GameObject TECH_Actual_Item)
     {
@@ -21,13 +28,23 @@ public class StatsPlayer : Stats
             AttackAngle = TECH_Actual_Item.GetComponent<ItemWeapone>().STATS_engle_of_Deafet;
             isAttackCleaving = TECH_Actual_Item.GetComponent<ItemWeapone>().STATS_is_Cleaving;
             AttackSpeed = TECH_Actual_Item.GetComponent<ItemWeapone>().STATS_attack_Speed;
+            if(isAttackCleaving)
+            {
+                attackCleaving = 1;
+            }
+            else
+            {
+                attackCleaving = 0;
+            }
         }
 
         if (TECH_Actual_Item.GetComponent<ItemArmor>() != null)
         {
            
-            HealthMax += TECH_Actual_Item.GetComponent<ItemArmor>().STATS_armor_Health;
-            StaminaMax += TECH_Actual_Item.GetComponent<ItemArmor>().STATS_armor_Mana;
+            HealthMax = TECH_Actual_Item.GetComponent<ItemArmor>().STATS_armor_Health;
+            StaminaMax = TECH_Actual_Item.GetComponent<ItemArmor>().STATS_armor_Stamina;
+            StaminaReg = TECH_Actual_Item.GetComponent<ItemArmor>().STATS_armor_StaminaReg;
+            MoveSpeed = TECH_Actual_Item.GetComponent<ItemArmor>().STATS_armor_MoveSpeed;
         }
     }
     
@@ -53,27 +70,42 @@ public class StatsPlayer : Stats
         }
     }
 
-    /*void SaveStats()
-
+    void SaveStats()
     {
-        PlayerPrefs.SetInt("STATS_weapone_Damage", STATS_AttackDamage);
-        PlayerPrefs.SetFloat("STATS_ranage_Attack", STATS_AttackRange);
-        PlayerPrefs.SetFloat("STATS_engle_of_Deafet", STATS_AttackAngle);
-   
-        PlayerPrefs.SetInt("STATS_armor_Health", STATS_HealthMax);
-        PlayerPrefs.SetFloat("STATS_armor_Mana", STATS_StaminaMax);
+        PlayerPrefs.SetInt("STATS_weapone_Damage", AttackDamage);
+        PlayerPrefs.SetFloat("STATS_ranage_Attack", AttackRange);
+        PlayerPrefs.SetFloat("STATS_engle_of_Deafet", AttackAngle);
+        PlayerPrefs.SetFloat("STATS_engle_of_Deafet", AttackAngle);
+        PlayerPrefs.SetFloat("STATS_attack_Spped", AttackSpeed);
+
+
+        PlayerPrefs.SetInt("STATS_armor_Health", HealthMax);
+        PlayerPrefs.SetFloat("STATS_armor_Mana", StaminaMax);
+        PlayerPrefs.SetFloat("STATS_armor_StanimaReg", StaminaReg);
+        PlayerPrefs.SetFloat("STATS_armor_MoveSpeed", MoveSpeed);
     }
 
     public void LoadStats()
     {
         if (PlayerPrefs.HasKey("STATS_weapone_Damage"))
         {
-            STATS_AttackDamage = PlayerPrefs.GetInt("STATS_weapone_Damage");
-            STATS_AttackRange = PlayerPrefs.GetFloat("STATS_ranage_Attack");
-            STATS_AttackAngle = PlayerPrefs.GetFloat("STATS_engle_of_Deafet");
-        
-            STATS_HealthMax = PlayerPrefs.GetInt("STATS_Health");
-            STATS_StaminaMax = PlayerPrefs.GetFloat("STATS_Stamina");
+            AttackDamage = PlayerPrefs.GetInt("STATS_weapone_Damage");
+            AttackRange = PlayerPrefs.GetFloat("STATS_ranage_Attack");
+            AttackAngle = PlayerPrefs.GetFloat("STATS_engle_of_Deafet");
+            AttackSpeed = PlayerPrefs.GetFloat("STATS_attack_Spped");
+            attackCleaving = PlayerPrefs.GetInt("STATS_is_Attack_Cleaving");
+            if(attackCleaving == 1)
+            {
+                isAttackCleaving = true;
+            }
+            else
+            {
+                isAttackCleaving = false;
+            }
+            HealthMax = PlayerPrefs.GetInt("STATS_Health");
+            StaminaMax = PlayerPrefs.GetFloat("STATS_Stamina");
+            StaminaReg = PlayerPrefs.GetFloat("STATS_armor_StanimaReg");
+            MoveSpeed = PlayerPrefs.GetFloat("STATS_armor_MoveSpeed");
         }
-    }*/
+    }
 }

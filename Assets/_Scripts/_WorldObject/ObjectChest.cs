@@ -11,6 +11,8 @@ public class ObjectChest : WorldObject
     public override void Start()
     {
         base.Start();
+        TECH_ItemObject = GameObject.Instantiate(ItemPrefab);
+        //TECH_ItemObject.SetActive(false);
     }
 
     public override void Activate()
@@ -18,9 +20,7 @@ public class ObjectChest : WorldObject
         base.Activate();
         if (!TECH_isOpen)
         {
-            TECH_ItemObject = GameObject.Instantiate(ItemPrefab, GameManager.Instance.PlayerTransform);
-            TECH_ItemObject.SetActive(false);
-
+            TECH_ItemObject.transform.parent = GameManager.Instance.PlayerTransform;
             GameManager.Instance.InventoryManager.ItemDispenser(TECH_ItemObject);
             TECH_isOpen = true;
         }

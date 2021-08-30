@@ -28,6 +28,7 @@ public class Stats : MonoBehaviour
     [Header("Stamina")]
     public float StaminaMax;
     public float StaminaActual;
+    public float StaminaReg;
 
     [Header("Attack")]
     public int AttackDamage;

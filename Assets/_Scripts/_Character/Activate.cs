@@ -6,6 +6,7 @@ public class Activate : MonoBehaviour
 {
     private readonly List<GameObject> TECH_TriggerWorldObjectList = new List<GameObject>();
     private GameObject TECH_TargetObject;
+    [SerializeField] private GameObject marker;
 
     void Update()
     {
@@ -21,6 +22,16 @@ public class Activate : MonoBehaviour
             {
                 TECH_TargetObject = ActivateObject;
             }
+        }
+        if(TECH_TargetObject)
+        {
+            marker.transform.position = new Vector3(TECH_TargetObject.transform.position.x, TECH_TargetObject.transform.position.y + 2f, TECH_TargetObject.transform.position.z);
+            marker.SetActive(true);
+            marker.transform.LookAt(GameManager.Instance.Camera.transform.position);
+        }
+        else
+        {
+            marker.SetActive(false);
         }
     }
 
