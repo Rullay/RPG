@@ -11,6 +11,7 @@ public class Item : MonoBehaviour
     [SerializeField] public Sprite item_Sprite;
     public string item_Type;
     public string animation_Type;
+    public int id;
 
     private enum ItemType
     {

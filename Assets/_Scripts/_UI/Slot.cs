@@ -19,4 +19,13 @@ public class Slot : MonoBehaviour
             inventoryItem.GetComponent<InventoryItem>().Equiped(itemSlot);
         }  
     }
+    public void DescriptionOn()
+    {
+        inventoryItem.GetComponent<InventoryItem>().Description(itemSlot);
+    }
+
+    public void DescriptionOff()
+    {
+        inventoryItem.GetComponent<InventoryItem>().DescriptionOff();
+    }
 }

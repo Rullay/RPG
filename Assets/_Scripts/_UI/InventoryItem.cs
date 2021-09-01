@@ -66,5 +66,15 @@ public class InventoryItem : MonoBehaviour
         GameManager.Instance.InventoryManager.GetComponent<InventoryManager>().ReEquipedItem();
     }
 
+
+    public void Description(GameObject item)
+    {
+        GameManager.Instance.InventoryManager.Description(item);
+    }
+    public void DescriptionOff()
+    {
+        GameManager.Instance.InventoryManager.DescriptionOff();
+    }
+
 }
 

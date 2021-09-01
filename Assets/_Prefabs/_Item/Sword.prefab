@@ -434,11 +434,15 @@ MonoBehaviour:
   item_Sprite: {fileID: 21300000, guid: fb929ca1d0dfed34982b9350b3b76b78, type: 3}
   item_Type: MainHand
   animation_Type: Bow
+  id: 0
   itemType: 0
   animationType: 2
   STATS_weapone_Damage: 5
   STATS_ranage_Attack: 2
   STATS_engle_of_Deafet: 4
+  STATS_attack_Speed: 0
+  STATS_is_Cleaving: 0
+  description: {fileID: 0}
 --- !u!136 &6803634061255021929
 CapsuleCollider:
   m_ObjectHideFlags: 0

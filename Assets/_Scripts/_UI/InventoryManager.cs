@@ -7,8 +7,14 @@ public class InventoryManager : MonoBehaviour
 {
     //Panel
     public List<GameObject> inventory_Types;
+    private List<int> loadInventory;
+    private List<int> loadEquipedItem;
     [SerializeField] private List<GameObject> Hands_1;
     [SerializeField] private List<GameObject> Hands_2;
+    [SerializeField] private Text description;
+    private ItemWeapone item_Weapone;
+    private ItemArmor item_Armor;
+
 
     public void ItemDispenser(GameObject ItemObject)
     {
@@ -38,6 +44,7 @@ public class InventoryManager : MonoBehaviour
             }
         }
     }
+
 
     public void ReEquipedSprite()
     {
@@ -69,6 +76,106 @@ public class InventoryManager : MonoBehaviour
             }
         }
         ReEquipedItem();
+    }
+
+    public void Description(GameObject item)
+    {
+        item_Armor = item.GetComponent<ItemArmor>();
+        item_Weapone = item.GetComponent<ItemWeapone>();
+        if(item_Weapone)
+        {
+            description.text = "Описание:  \n Тип ??? " + "\n Урон: " + item_Weapone.STATS_weapone_Damage + " \n Скорость атаки " + item_Weapone.STATS_attack_Speed;
+        }
+        if (item_Armor)
+        {
+
+        }
+
+
+    }
+    public void DescriptionOff()
+    {
+
+        description.text = "";
+    }
+
+
+
+    // Ниже ебучий пиздец 
+
+    public void SaveInventory()
+    {
+        for (int i = 0; i < inventory_Types.Count; i++)
+        {
+            for (int j = 0; j < inventory_Types[i].GetComponent<InventoryItem>().items.Count; j++)
+            {
+                if(inventory_Types[i].GetComponent<InventoryItem>().items[j])
+                {
+                    PlayerPrefs.SetInt("Item_id " + inventory_Types[i].GetComponent<InventoryItem>().items[j].GetComponent<Item>().id, inventory_Types[i].GetComponent<InventoryItem>().items[j].GetComponent<Item>().id);
+                }
+            }
+        }
+    }
+
+
+    public void LoadInventory()
+    {
+        // вместо 100 будет количество сохранненых шмоток
+        for ( int i  = 0; i < 100; i++)
+        {
+
+            loadInventory.Add(PlayerPrefs.GetInt("Item_i " + i));
+
+        }
+        for (int i = 0; i < loadInventory.Count; i++)
+        {
+            /* for(int j = 0; j < список всех предметов.Count; j++)
+             {
+                if(список всех предметов[j].id ==  loadInventory[i])
+                {
+                    ItemDispenser(список всех предметов[j])
+                {
+             }*/
+        }
+
+    }
+
+    public void SaveEquipedItem()
+    {
+        for (int i = 0; i < inventory_Types.Count; i++)
+        {
+            if (inventory_Types[i].GetComponent<InventoryItem>().equipedItemObject)
+            {
+                PlayerPrefs.SetInt("Item_Equiped_id " + inventory_Types[i].GetComponent<InventoryItem>().equipedItemObject.GetComponent<Item>().id, inventory_Types[i].GetComponent<InventoryItem>().equipedItemObject.GetComponent<Item>().id);
+            }
+        }
+    }
+    public void LoadEquipedItem()
+    {
+
+        for (int i = 0; i < 8; i++)
+        {
+
+            loadEquipedItem.Add(PlayerPrefs.GetInt("Item_Equiped_id " + i));
+
+        }
+        for (int i = 0; i < loadInventory.Count; i++)
+        {
+            /* for(int j = 0; j < список всех предметов.Count; j++)
+             {
+                if(список всех предметов[j].id ==  loadInventory[i])
+                {
+                     for (int n = 0; n < inventory_Types.Count; n++)
+                     {
+                          if( inventory_Types.GetComponent<InventoryItem>().slot_Type == список всех предметов[j].GetComponent<Item>().item_Type)
+                          {
+                                Equiped(список всех предметов[j])
+                          }
+                     }
+                {
+             }*/
+        }
+
     }
 }
 
