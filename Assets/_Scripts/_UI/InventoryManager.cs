@@ -14,6 +14,7 @@ public class InventoryManager : MonoBehaviour
     [SerializeField] private Text description;
     private ItemWeapone item_Weapone;
     private ItemArmor item_Armor;
+    private ItemArtifact item_Artifact;
 
 
     public void ItemDispenser(GameObject ItemObject)
@@ -82,13 +83,18 @@ public class InventoryManager : MonoBehaviour
     {
         item_Armor = item.GetComponent<ItemArmor>();
         item_Weapone = item.GetComponent<ItemWeapone>();
-        if(item_Weapone)
+        item_Artifact = item.GetComponent<ItemArtifact>();
+        if (item_Weapone)
         {
-            description.text = "Описание:  \n Тип ??? " + "\n Урон: " + item_Weapone.STATS_weapone_Damage + " \n Скорость атаки " + item_Weapone.STATS_attack_Speed;
+            description.text = "Description:  \n Type " + item_Weapone.item_Type + "\n Damage: " + item_Weapone.STATS_weapone_Damage + " \n Attack speed " + item_Weapone.STATS_attack_Speed;
         }
         if (item_Armor)
         {
-
+            description.text = "Description:  \n Type " + item_Armor.item_Type + "\n Health: " + item_Armor.STATS_armor_Health + " \n Stamina " + item_Armor.STATS_armor_Stamina;
+        }
+        if(item_Artifact)
+        {
+            description.text = "Description:  \n Type " + item_Artifact.item_Type + "\n ????? ";
         }
 
 

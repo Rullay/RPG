@@ -17,8 +17,4 @@ public class ItemArmor : Item
     }
 
     
-    void Update()
-    {
-        
-    }
 }

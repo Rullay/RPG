@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Activate : MonoBehaviour
 {
-    private readonly List<GameObject> TECH_TriggerWorldObjectList = new List<GameObject>();
+    public List<GameObject> TECH_TriggerWorldObjectList = new List<GameObject>();
     private GameObject TECH_TargetObject;
     [SerializeField] private GameObject marker;
 

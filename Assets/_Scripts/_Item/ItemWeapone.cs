@@ -17,14 +17,4 @@ public class ItemWeapone : Item
         base.Start();
     }
 
-
-    void Update()
-    {
-
-    }
-
-
-
- 
-
 }
