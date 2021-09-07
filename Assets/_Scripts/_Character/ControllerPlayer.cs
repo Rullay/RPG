@@ -42,13 +42,11 @@ public class ControllerPlayer : MonoBehaviour
     {
         if (Input.GetButtonDown("Fire1"))
         {
-            if(!isAttack)
+            if(attack.isAttack())
             {
-                isAttack = true;
-                attack.MeleeAttack(stats.AttackDamage, stats.AttackAngle, stats.AttackRange, stats.isAttackCleaving);
-                animationManager.PlayAttackAnimation(stats.AttackSpeed, stats.AttackAnimation);
+                attack.PlayAttack(stats.AttackDamage, stats.AttackAngle, stats.AttackRange, stats.isAttackCleaving, stats.AttackSpeed);
+                animationManager.PlayAttackAnimation (stats.AttackAnimation);
             }
-
         }
 
         if (Input.GetKeyDown(KeyCode.E))
@@ -72,13 +70,6 @@ public class ControllerPlayer : MonoBehaviour
         }
         Movement();
     }
-
-    public void AttackEnd()
-    {
-        isAttack = false;
-        attack.MeleeAttack(stats.AttackDamage, stats.AttackAngle, stats.AttackRange, stats.isAttackCleaving);
-    }
-
 
     void Movement()
     {

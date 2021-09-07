@@ -9,12 +9,8 @@ public class ItemArmor : Item
     public float STATS_armor_StaminaReg;
     public float STATS_armor_MoveSpeed;
 
-
-
     new void Start()
     {
         base.Start();
     }
-
-    
 }

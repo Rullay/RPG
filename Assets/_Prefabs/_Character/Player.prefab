@@ -83,24 +83,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TECH_State: 0
-  MoveSpeed: 10
+  MoveSpeed: 0
   MoveRunMultiplier: 2
   JupmSpeed: 25
   Gravity: 90
-  HealthMax: 100
-  HealthActual: 100
-  StaminaMax: 100
-  StaminaActual: 100
+  HealthMax: 0
+  HealthActual: 0
+  StaminaMax: 0
+  StaminaActual: 0
+  StaminaReg: 0
   AttackDamage: 1
   AttackRange: 2
   AttackAngle: 90
   AttackSpeed: 1
   isAttackCleaving: 0
+  AttackAnimation: 
+  TECH_HealthBar: {fileID: 0}
+  TECH_StaminaBar: {fileID: 0}
+  Base_StanimaReg: 10
+  Base_Stanima: 100
+  Base_MoveSpeed: 10
+  Base_Health: 100
+  experiencePlayer: 0
+  lavel: 1
+  neededExperince: 0
+  upPoint: 0
   ExpPointHealth: 0
   ExpPointStamina: 0
   ExpPointSpeed: 0
-  AttackAnimation: 
-  TECH_HealthBar: {fileID: 0}
 --- !u!1 &4358490280155485488
 GameObject:
   m_ObjectHideFlags: 0
@@ -234,7 +244,7 @@ MonoBehaviour:
   SET_CameraMaxAngle: 70
   SET_CameraVerticalSens: 10
   SET_CameraHorizontalSens: 10
-  SET_CameraRange: 10
+  SET_CameraRange: 6
   SET_CameraRangeAim: 3
   SET_CameraSpeed: 25
   SET_CameraOffset: 1

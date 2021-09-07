@@ -8,7 +8,6 @@ public class StatsPlayer : Stats
     public string AttackAnimation;
     [SerializeField] private Slider TECH_HealthBar;
     [SerializeField] private Slider TECH_StaminaBar;
-    private int attackCleaving;
 
     [Header("Base Stats")]
     [SerializeField] private float Base_StanimaReg;
@@ -18,7 +17,7 @@ public class StatsPlayer : Stats
 
     [Header("Exp Settings")]
     [SerializeField] private int experiencePlayer;
-    [SerializeField] private int lavel = 1;
+    [SerializeField] private int level = 1;
     [SerializeField] private int neededExperince;
     [SerializeField] private int upPoint;
     public int ExpPointHealth;
@@ -35,53 +34,43 @@ public class StatsPlayer : Stats
 
     public void Update()
     {
-        StaminaBar();
-        HealthBar();
-        if (Input.GetButtonDown("Jump"))
-        {
-            // получение опыта 
-            experiencePlayer += 100;
-        }
-        LavelUP();
+        StaminaCalculate();
+        HealthCalculate();
+        LevelUP();
     }
-
 
     public void AddItemStats(GameObject TECH_Actual_Item)
     {
         if (TECH_Actual_Item.GetComponent<ItemWeapone>() != null)
         {
-            AttackAnimation = TECH_Actual_Item.GetComponent<ItemWeapone>().animation_Type;
-            AttackDamage = TECH_Actual_Item.GetComponent<ItemWeapone>().STATS_weapone_Damage;
-            AttackRange = TECH_Actual_Item.GetComponent<ItemWeapone>().STATS_ranage_Attack;
-            AttackAngle = TECH_Actual_Item.GetComponent<ItemWeapone>().STATS_engle_of_Deafet;
-            isAttackCleaving = TECH_Actual_Item.GetComponent<ItemWeapone>().STATS_is_Cleaving;
-            AttackSpeed = TECH_Actual_Item.GetComponent<ItemWeapone>().STATS_attack_Speed;
-            if(isAttackCleaving)
-            {
-                attackCleaving = 1;
-            }
-            else
-            {
-                attackCleaving = 0;
-            }
+            ItemWeapone TECH_ItemWeapone = TECH_Actual_Item.GetComponent<ItemWeapone>();
+
+            AttackAnimation = TECH_ItemWeapone.GetWeaponAnimations();
+            AttackDamage = TECH_ItemWeapone.STATS_weapone_Damage;
+            AttackRange = TECH_ItemWeapone.STATS_ranage_Attack;
+            AttackAngle = TECH_ItemWeapone.STATS_angle_of_Defeat;
+            isAttackCleaving = TECH_ItemWeapone.STATS_is_Cleaving;
+            AttackSpeed = TECH_ItemWeapone.STATS_attack_Speed;
         }
 
         if (TECH_Actual_Item.GetComponent<ItemArmor>() != null)
-        {          
-            HealthMax += TECH_Actual_Item.GetComponent<ItemArmor>().STATS_armor_Health;
-            StaminaMax += TECH_Actual_Item.GetComponent<ItemArmor>().STATS_armor_Stamina ;
-            StaminaReg += TECH_Actual_Item.GetComponent<ItemArmor>().STATS_armor_StaminaReg;
-            MoveSpeed += TECH_Actual_Item.GetComponent<ItemArmor>().STATS_armor_MoveSpeed;
+        {
+            ItemArmor TECH_ItemArmor = TECH_Actual_Item.GetComponent<ItemArmor>();
+
+            HealthMax += TECH_ItemArmor.STATS_armor_Health;
+            StaminaMax += TECH_ItemArmor.STATS_armor_Stamina ;
+            StaminaReg += TECH_ItemArmor.STATS_armor_StaminaReg;
+            MoveSpeed += TECH_ItemArmor.STATS_armor_MoveSpeed;
         }
     }
     
-    void HealthBar()
+    void HealthCalculate()
     {
         TECH_HealthBar.maxValue = HealthMax;
         TECH_HealthBar.value = HealthActual;
     } 
 
-    void StaminaBar()
+    void StaminaCalculate()
     {  
         if(StaminaActual < StaminaMax)
         {
@@ -108,25 +97,24 @@ public class StatsPlayer : Stats
                     ExpPointSpeed++;
                     break;
             }
-            SaveStats();
-            LoadStats();
-            // переодевание шмоток
+            //SaveStats();
+            //LoadStats();
         }
         
     }
 
-    void LavelUP()
+    void LevelUP()
     {
-        if (lavel == 1)
+        if (level == 1)
         {
             neededExperince = 100;
         }
 
         if (experiencePlayer >= neededExperince)
         {
-            experiencePlayer = experiencePlayer - neededExperince;
-            lavel += 1;
-            neededExperince = neededExperince + neededExperince / (10 + lavel) + lavel * 10 /*lavel/(10 + lavel)*/;
+            experiencePlayer -= neededExperince;
+            level += 1;
+            neededExperince = neededExperince + neededExperince / (10 + level) + level * 10 /*lavel/(10 + lavel)*/;
             upPoint += 3;
         }
 
@@ -150,7 +138,6 @@ public class StatsPlayer : Stats
             StaminaMax = Base_Stanima + ExpPointStamina * 5;
             MoveSpeed = Base_MoveSpeed + ExpPointSpeed;
             StaminaReg = Base_StanimaReg;
-            // переодевание шмоток 
         }
     }
 }

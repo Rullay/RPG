@@ -7,10 +7,8 @@ using UnityEngine.UI;
 
 public class Item : MonoBehaviour
 {
-
     [SerializeField] public Sprite item_Sprite;
-    public string item_Type;
-    public string animation_Type;
+    private string TECH_ItemType;
     public int id;
 
     private enum ItemType
@@ -23,73 +21,37 @@ public class Item : MonoBehaviour
     }
     [SerializeField] private ItemType itemType;
 
-    private enum AnimationType
-    {
-        OneHand,
-        TwoHand, 
-        Bow,
-        Staff,
-        Shield
-    }
-    [SerializeField] private AnimationType animationType;
-
-
-    public void Start()
+    public virtual void Start()
     {
         WriteType();
-        WriteAnimationType();
     }
 
-    public void WriteType()
+    void WriteType()
     {
         switch (itemType)
         {
             case ItemType.MainHand:
-                item_Type = "MainHand";
+                TECH_ItemType = "MainHand";
                 break;
             case ItemType.OfHand:
-                item_Type = "OfHand";
+                TECH_ItemType = "OfHand";
                 break;
             case ItemType.Head:
-                item_Type = "Head";
+                TECH_ItemType = "Head";
                 break;
             case ItemType.Chest:
-                item_Type = "Chest";
+                TECH_ItemType = "Chest";
                 break;
             case ItemType.Artifact:
-                item_Type = "Artifact";
+                TECH_ItemType = "Artifact";
                 break;
 
         }
     }
 
-    public void WriteAnimationType()
+    public string GetItemType()
     {
-        switch (animationType)
-        {
-            case AnimationType.OneHand:
-                animation_Type = "OneHand";
-                break;
-            case AnimationType.TwoHand:
-                animation_Type = "TwoHand";
-                break;
-            case AnimationType.Bow:
-                animation_Type = "Bow";
-                break;
-            case AnimationType.Staff:
-                animation_Type = "Staff";
-                break;
-            case AnimationType.Shield:
-                animation_Type = "Shield";
-                break;
-
-        }
-
-    }
-
-    public void Collected()
-    {
-        gameObject.SetActive(false);
+        return TECH_ItemType;
     }
 }
 

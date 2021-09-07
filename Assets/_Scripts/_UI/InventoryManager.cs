@@ -21,16 +21,11 @@ public class InventoryManager : MonoBehaviour
     {
         for (int i = 0; i < inventory_Types.Count; i++)
         {
-            if (ItemObject.GetComponent<Item>().item_Type == inventory_Types[i].GetComponent<InventoryItem>().slot_Type)
+            if (ItemObject.GetComponent<Item>().GetItemType() == inventory_Types[i].GetComponent<InventoryItem>().slot_Type)
             {
                 inventory_Types[i].GetComponent<InventoryItem>().items.Add(ItemObject);
             }
         }
-    }
-
-    public void GetItemStats(GameObject TECH_Actual_Item)
-    {
-        GameManager.Instance.Player.GetComponent<StatsPlayer>().AddItemStats(TECH_Actual_Item);
     }
 
 
@@ -41,7 +36,7 @@ public class InventoryManager : MonoBehaviour
         {
             if (inventory_Types[i].GetComponent<InventoryItem>().equipedItemObject != null && inventory_Types[i].activeSelf == true)
             {
-                GetItemStats(inventory_Types[i].GetComponent<InventoryItem>().equipedItemObject);
+                GameManager.Instance.Player.GetComponent<StatsPlayer>().AddItemStats(inventory_Types[i].GetComponent<InventoryItem>().equipedItemObject);
             }
         }
     }
@@ -86,15 +81,15 @@ public class InventoryManager : MonoBehaviour
         item_Artifact = item.GetComponent<ItemArtifact>();
         if (item_Weapone)
         {
-            description.text = "Description:  \n Type " + item_Weapone.item_Type + "\n Damage: " + item_Weapone.STATS_weapone_Damage + " \n Attack speed " + item_Weapone.STATS_attack_Speed;
+            description.text = "Description:  \n Type " + item_Weapone.GetItemType() + "\n Damage: " + item_Weapone.STATS_weapone_Damage + " \n Attack speed " + item_Weapone.STATS_attack_Speed;
         }
         if (item_Armor)
         {
-            description.text = "Description:  \n Type " + item_Armor.item_Type + "\n Health: " + item_Armor.STATS_armor_Health + " \n Stamina " + item_Armor.STATS_armor_Stamina;
+            description.text = "Description:  \n Type " + item_Armor.GetItemType() + "\n Health: " + item_Armor.STATS_armor_Health + " \n Stamina " + item_Armor.STATS_armor_Stamina;
         }
         if(item_Artifact)
         {
-            description.text = "Description:  \n Type " + item_Artifact.item_Type + "\n ????? ";
+            description.text = "Description:  \n Type " + item_Artifact.GetItemType() + "\n ????? ";
         }
 
 
@@ -107,7 +102,7 @@ public class InventoryManager : MonoBehaviour
 
 
 
-    // Ниже ебучий пиздец 
+    // ???? ?????? ?????? 
 
     public void SaveInventory()
     {
@@ -126,7 +121,7 @@ public class InventoryManager : MonoBehaviour
 
     public void LoadInventory()
     {
-        // вместо 100 будет количество сохранненых шмоток
+        // ?????? 100 ????? ?????????? ??????????? ??????
         for ( int i  = 0; i < 100; i++)
         {
 
@@ -135,11 +130,11 @@ public class InventoryManager : MonoBehaviour
         }
         for (int i = 0; i < loadInventory.Count; i++)
         {
-            /* for(int j = 0; j < список всех предметов.Count; j++)
+            /* for(int j = 0; j < ?????? ???? ?????????.Count; j++)
              {
-                if(список всех предметов[j].id ==  loadInventory[i])
+                if(?????? ???? ?????????[j].id ==  loadInventory[i])
                 {
-                    ItemDispenser(список всех предметов[j])
+                    ItemDispenser(?????? ???? ?????????[j])
                 {
              }*/
         }
@@ -167,15 +162,15 @@ public class InventoryManager : MonoBehaviour
         }
         for (int i = 0; i < loadInventory.Count; i++)
         {
-            /* for(int j = 0; j < список всех предметов.Count; j++)
+            /* for(int j = 0; j < ?????? ???? ?????????.Count; j++)
              {
-                if(список всех предметов[j].id ==  loadInventory[i])
+                if(?????? ???? ?????????[j].id ==  loadInventory[i])
                 {
                      for (int n = 0; n < inventory_Types.Count; n++)
                      {
-                          if( inventory_Types.GetComponent<InventoryItem>().slot_Type == список всех предметов[j].GetComponent<Item>().item_Type)
+                          if( inventory_Types.GetComponent<InventoryItem>().slot_Type == ?????? ???? ?????????[j].GetComponent<Item>().item_Type)
                           {
-                                Equiped(список всех предметов[j])
+                                Equiped(?????? ???? ?????????[j])
                           }
                      }
                 {
