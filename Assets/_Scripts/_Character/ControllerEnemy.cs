@@ -5,10 +5,9 @@ using UnityEngine.AI;
 
 public class ControllerEnemy : MonoBehaviour
 {
-    private enum STATE_AI { Patrol, GoToPatrol, Find, GoToAttack, Attack }
+    private enum STATE_AI { Patrol, GoToPatrol, Find, GoToAttack, Attack, AttackWait }
     private STATE_AI TECH_StateAI;
 
-    private NavMeshAgent NMA;
     private GameObject Target;
     private Transform TargetTransform;
     private Vector3 TECH_StartPosition;
@@ -18,23 +17,28 @@ public class ControllerEnemy : MonoBehaviour
     [SerializeField] private float STATS_DetectionRange;
     [SerializeField] private float STATS_VisionRange;
 
-    private Stats Stats;
+    private NavMeshAgent NMA;
+    private StatsEnemy Stats;
+    private Attack Attack;
+    private AnimationManager AnimationManager;
 
     void Start()
     {
-        Target = GameManager.Instance.Player;
-        Stats = GetComponent<Stats>();
+        AnimationManager = GetComponent<AnimationManager>();
+        Stats = GetComponent<StatsEnemy>();
+        NMA = GetComponent<NavMeshAgent>();
+        Attack = GetComponent<Attack>();
 
+        Target = GameManager.Instance.Player;
         TargetTransform = Target.transform;
         TECH_StartPosition = transform.position;
-        NMA = GetComponent<NavMeshAgent>();
 
         NMA.speed = Stats.MoveSpeed;
     }
 
     void Update()
     {
-        if (Stats.TECH_State == Stats.STATE.Alive)
+        if (Stats.TECH_State == StatsCharacter.STATE.Alive)
         {
             switch (TECH_StateAI)
             {
@@ -52,6 +56,9 @@ public class ControllerEnemy : MonoBehaviour
                     break;
                 case STATE_AI.GoToAttack:
                     AI_GoToAttack();
+                    break;
+                case STATE_AI.AttackWait:
+                    AI_AttackWait();
                     break;
             }
         } else
@@ -88,8 +95,20 @@ public class ControllerEnemy : MonoBehaviour
 
     void AI_Attack()
     {
-        //Attack();
-        TECH_StateAI = STATE_AI.GoToAttack;
+        if (!Attack.isAttack())
+        {
+            Attack.PlayAttack(Stats.AttackDamage, Stats.AttackAngle, Stats.AttackRange, Stats.isAttackCleaving, Stats.AttackSpeed);
+            AnimationManager.PlayAttackAnimation(Stats.AttackAnimation);
+        }
+        TECH_StateAI = STATE_AI.AttackWait;
+    }
+
+    void AI_AttackWait()
+    {
+        if (!Attack.isAttack())
+        {
+            TECH_StateAI = STATE_AI.GoToAttack;
+        }
     }
 
     void AI_GoToAttack()
@@ -116,9 +135,9 @@ public class ControllerEnemy : MonoBehaviour
 
     bool TECH_IsSeePlayer()
     {
-        if (Physics.Raycast(transform.position, TargetTransform.position - transform.position,out TECH_TargetHit,STATS_VisionRange))
+        if (Physics.Raycast(transform.position + new Vector3(0f,transform.localScale.y * 0.8f,0f), TargetTransform.position - transform.position,out TECH_TargetHit,STATS_VisionRange))
         {
-            if(TECH_TargetHit.collider.gameObject == Target)
+            if (TECH_TargetHit.collider.gameObject == Target)
             {
                 return true;
             }

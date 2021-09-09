@@ -4,28 +4,12 @@ using UnityEngine;
 
 public class AnimationManager : MonoBehaviour
 {
-    protected GameObject TECH_Model;
-    [SerializeField] private List<GameObject> TECH_MainHands;
     private Animator Animator;
-
-    private bool isAttack;
-    protected bool isJump;
+    [SerializeField] GameObject Model;
 
     void Start()
     {
-        foreach (Transform TECH_Child in transform)
-        {
-            if (TECH_Child.GetComponent<TECH_ModelHumanoid>())
-            {
-                TECH_Model = TECH_Child.gameObject;
-                Animator = TECH_Model.GetComponent<Animator>();
-            }
-        }
-        if (!TECH_Model)
-        {
-            Debug.LogWarning("!!! Не найдена модель объекта !!!");
-            TECH_Model = gameObject;
-        }
+        Animator = Model.GetComponent<Animator>();
     }
 
     public void SetMoveHorizontal(float Speed)
@@ -35,33 +19,20 @@ public class AnimationManager : MonoBehaviour
 
     public void PlayAttackAnimation(string WeaponeType)
     {
-        Animator.Play("ModelOneHandAttack");
-        //switch (WeaponeType)
-        //{
-        //    case "OneHand":
-        //        Animator.SetBool("OneHandAttack", true);
-        //        break;
-        //    case "TwoHand":
-        //        Animator.SetBool("TwoHandAttack", true);
-        //        break;
-        //    case "Bow":
-        //        Animator.SetBool("BowAttack", true);
-        //        break;
-        //    case "Staff":
-        //        Animator.SetBool("StaffAttack", true);
-        //        break;
-        //}
-        //StartCoroutine(StopAttackAnimation(1));
+        switch (WeaponeType)
+        {
+            case "OneHand":
+                Animator.SetTrigger("OneHandAttack");
+                break;
+            //case "TwoHand":
+            //    Animator.SetTrigger("TwoHandAttack");
+            //    break;
+            //case "Staff":
+            //    Animator.SetTrigger("StaffAttack");
+            //    break;
+        }
     }
 
-    IEnumerator StopAttackAnimation(float AnimationTime)
-    {
-        yield return new WaitForSeconds(AnimationTime);
-        Animator.SetBool("OneHandAttack", false);
-        Animator.SetBool("TwoHandAttack", false);
-        Animator.SetBool("BowAttack", false);
-        Animator.SetBool("StaffAttack", false);
-    }
 
     public void AnimationPlayAim(string WeaponeType)
     {
@@ -75,6 +46,7 @@ public class AnimationManager : MonoBehaviour
                 break;
         }
     }
+
     public void AnimationStopAim()
     {
         Animator.SetBool("BowAim", false);

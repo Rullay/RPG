@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Stats : MonoBehaviour
+public class StatsCharacter : MonoBehaviour
 {
 
     public enum STATE { Alive, Dead }
@@ -36,6 +36,7 @@ public class Stats : MonoBehaviour
     public float AttackAngle;
     public float AttackSpeed;
     public bool isAttackCleaving;
+    public string AttackAnimation;
 
     public void TakeDamage(int TECH_DamageValue)
     {

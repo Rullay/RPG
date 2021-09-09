@@ -4,15 +4,23 @@ using UnityEngine;
 
 public class Activate : MonoBehaviour
 {
-    public List<GameObject> TECH_TriggerWorldObjectList = new List<GameObject>();
+    private List<GameObject> TECH_TriggerList = new List<GameObject>();
     private GameObject TECH_TargetObject;
-    [SerializeField] private GameObject marker;
+    [SerializeField] private GameObject Marker;
+    [SerializeField] private GameObject ActivateTrigger;
+
+    private TECH_ActivateTrigger TECH_ActivateTrigger;
+
+    void Start()
+    {
+        TECH_ActivateTrigger = ActivateTrigger.GetComponent<TECH_ActivateTrigger>();
+    }
 
     void Update()
     {
         TECH_TargetObject = null;
-
-        foreach (GameObject ActivateObject in TECH_TriggerWorldObjectList)
+        TECH_TriggerList = TECH_ActivateTrigger.TECH_TriggerList;
+        foreach (GameObject ActivateObject in TECH_TriggerList)
         {
             if (!TECH_TargetObject)
             {
@@ -25,13 +33,13 @@ public class Activate : MonoBehaviour
         }
         if(TECH_TargetObject)
         {
-            marker.transform.position = new Vector3(TECH_TargetObject.transform.position.x, TECH_TargetObject.transform.position.y + 2f, TECH_TargetObject.transform.position.z);
-            marker.SetActive(true);
-            marker.transform.LookAt(GameManager.Instance.Camera.transform.position);
+            Marker.transform.position = new Vector3(TECH_TargetObject.transform.position.x, TECH_TargetObject.transform.position.y + 2f, TECH_TargetObject.transform.position.z);
+            Marker.SetActive(true);
+            Marker.transform.LookAt(GameManager.Instance.Camera.transform.position);
         }
         else
         {
-            marker.SetActive(false);
+            Marker.SetActive(false);
         }
     }
 
@@ -47,7 +55,7 @@ public class Activate : MonoBehaviour
     {
         if (other!.GetComponent<WorldObject>())
         {
-            TECH_TriggerWorldObjectList.Add(other.gameObject);
+            TECH_TriggerList.Add(other.gameObject);
         }
     }
 
@@ -55,7 +63,7 @@ public class Activate : MonoBehaviour
     {
         if (other!.GetComponent<WorldObject>())
         {
-            TECH_TriggerWorldObjectList.Remove(other.gameObject);
+            TECH_TriggerList.Remove(other.gameObject);
         }
     }
 }

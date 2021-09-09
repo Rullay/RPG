@@ -4,11 +4,8 @@ using UnityEngine;
 
 public class ItemArtifact : Item
 {
-
     new void Start()
     {
         base.Start();
     }
-
-  
 }

@@ -3,15 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class StatsPlayer : Stats
+public class StatsPlayer : StatsCharacter
 {
-    public string AttackAnimation;
     [SerializeField] private Slider TECH_HealthBar;
     [SerializeField] private Slider TECH_StaminaBar;
 
     [Header("Base Stats")]
     [SerializeField] private float Base_StanimaReg;
-    [SerializeField] private float Base_Stanima;
+    [SerializeField] private float Base_Stamina;
     [SerializeField] private float Base_MoveSpeed;
     [SerializeField] private int Base_Health;
 
@@ -135,7 +134,7 @@ public class StatsPlayer : Stats
             ExpPointStamina = PlayerPrefs.GetInt("ExpPointStamina");
             ExpPointSpeed = PlayerPrefs.GetInt("ExpPointSpeed");
             HealthMax = Base_Health + ExpPointHealth * 5;
-            StaminaMax = Base_Stanima + ExpPointStamina * 5;
+            StaminaMax = Base_Stamina + ExpPointStamina * 5;
             MoveSpeed = Base_MoveSpeed + ExpPointSpeed;
             StaminaReg = Base_StanimaReg;
         }

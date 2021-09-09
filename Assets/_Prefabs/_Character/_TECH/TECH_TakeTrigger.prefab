@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8322854812974180925}
   - component: {fileID: 1724158078051406946}
   - component: {fileID: 5542062285509710886}
-  - component: {fileID: 1071833102430328244}
+  - component: {fileID: 1611067343}
   m_Layer: 2
   m_Name: TECH_TakeTrigger
   m_TagString: Untagged
@@ -63,7 +63,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
---- !u!114 &1071833102430328244
+--- !u!114 &1611067343
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -72,10 +72,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 8798879004495369009}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9d1fb1a4b3414f8e957b11800eac5e2, type: 3}
+  m_Script: {fileID: 11500000, guid: eb4dbac3e14984d8285b08b15fd74721, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  marker: {fileID: 3458113820032340445}
+  TECH_TriggerList: []
 --- !u!1001 &1887327352234810708
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -131,13 +131,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: TECH_Marker
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7518089346954691176, guid: fbad4048ffd901c478301abdadfd6e2c, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: fbad4048ffd901c478301abdadfd6e2c, type: 3}
---- !u!1 &3458113820032340445 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3876633945524145289, guid: fbad4048ffd901c478301abdadfd6e2c, type: 3}
-  m_PrefabInstance: {fileID: 1887327352234810708}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3976412057703116177 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3251088246048616645, guid: fbad4048ffd901c478301abdadfd6e2c, type: 3}
