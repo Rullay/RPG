@@ -44,12 +44,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item_Sprite: {fileID: 21300000, guid: ea5ef5ad9ee4e794cbd64c8f291ef1f4, type: 3}
-  item_Type: 
-  animation_Type: 
   id: 0
   itemType: 3
-  animationType: 0
   STATS_armor_Health: 15
   STATS_armor_Stamina: 15
   STATS_armor_StaminaReg: 0
-  STATS_armor_MoveSpeed: 10
+  STATS_armor_MoveSpeed: 0

@@ -434,7 +434,7 @@ MonoBehaviour:
   item_Sprite: {fileID: 21300000, guid: fb929ca1d0dfed34982b9350b3b76b78, type: 3}
   id: 0
   itemType: 0
-  STATS_weapone_Damage: 10
+  STATS_weapone_Damage: 25
   STATS_ranage_Attack: 2
   STATS_angle_of_Defeat: 90
   STATS_attack_Speed: 1
